@@ -4,8 +4,8 @@ letras = []
 #Transformamos todo el texto en minúsculas para que quede igualado
 texto = texto.lower()
 
-#La letra que introducimos en el input la añadimos a la variable 'letras con el método append()
-#La letra la transformamos a minúscula para la la busque en el texto que tb se transformó en minúscula
+#La letra que introducimos en el input la añadimos a la variable 'letras' con el método append()
+#La letra la transformamos a minúscula para se busque en el texto que tb se transformó en minúscula
 letras.append(input("Primera letra o símbolo que quieres buscar: ").lower())
 letras.append(input("Segunda letra o símbolo que quieres buscar: ").lower())
 letras.append(input("Tercera letra o símbolo que quieres buscar: ").lower())
@@ -40,8 +40,8 @@ print("\n")
 #uso reverse para invertir las palabras
 #join para volver a unirlas
 print("TEXTO INVERTIDO")
-palabras.reverse()
-texto_invertido = ' '.join(palabras)
+palabras_invertidas = palabras[::-1] #Invierte el orden de las palabras
+texto_invertido = ' '.join([palabras[::-1] for palabras in palabras_invertidas]) #Invierte cada caracter de cada palabra y las une en un texto
 print(f"Tu texto invertido sería este:\n '{texto_invertido}'")
 print("\n")
 
