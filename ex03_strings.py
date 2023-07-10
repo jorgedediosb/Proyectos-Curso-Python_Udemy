@@ -7,7 +7,7 @@ print(resultado)
 
 palabra = "atapuerca"
 resultado = palabra.index("a",1,7) 
-print(resultado) #el resultado es '2' porque desde la posición 1 (la 2ª) la 1ª 'a' está en la posición 2
+print(resultado) #el resultado es '2' porque desde la posición 1 (la 2ª) a la posición 7ª, la 1ª 'a' está en la posición 2
 
 #Extraer cadenas de texto
 palabra = "ordenador"
@@ -42,7 +42,7 @@ resultado = texto[::2] #desde el índice 0 hasta el final, salatándose 2 cada v
 print(resultado)
 
 texto = "atapuerca"
-resultado = texto[::-1] #desde el índice 0 hasta el final, salatándose 2 cada vez
+resultado = texto[::-1] #de dch a izq (al revés), salatándose 2 cada vez
 print(resultado)
 
 #Otros métodos para trabajar con strings:
