@@ -30,18 +30,22 @@ palabras = texto.split()
 print(f"Hemos encontrado {len(palabras)} palabras en tu texto.")
 print("\n")
 
+#Seleccino el primer y último carácter del texto para mostrar la primera y última letra
 print("LETRAS DE INICIO Y FIN")
 letra_inicio = texto[0]
 letra_final = texto[-1]
 print(f"La primera letra de tu texto es '{letra_inicio}' y la última es '{letra_final}'.")
 print("\n")
 
+#uso reverse para invertir las palabras
+#join para volver a unirlas
 print("TEXTO INVERTIDO")
 palabras.reverse()
 texto_invertido = ' '.join(palabras)
 print(f"Tu texto invertido sería este:\n '{texto_invertido}'")
 print("\n")
 
+#creo un diccionario con True y False para que me indique si existe la palabra Python en el texto
 print("BUSCAR PALABRA PYTHON")
 buscar_python = 'python' in texto
 dic = {True:"SI", False:"NO"}
