@@ -1,3 +1,5 @@
+#Proyecto de la lección 3 - "Analizador de Texto"
+
 texto = input("Ingresa el texto que quieras analizar: ")
 letras = []
 
