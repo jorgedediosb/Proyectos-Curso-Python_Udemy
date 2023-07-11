@@ -70,3 +70,11 @@ for letras in nombre:
     if letras == 'r':
         break
     print(letras)
+
+# loop For a lo largo de la siguiente lista de números, imprimiendo en pantalla cada uno de sus elementos.
+# Interrumpe el flujo en el momento que encuentres un valor negativo:
+lista_numeros = [4,5,8,7,6,9,8,2,4,5,7,1,9,5,6,-1,-5,6,-6,-4,-3]
+for numeros in lista_numeros:
+    if numeros <= 0:
+        break
+    print(numeros)
