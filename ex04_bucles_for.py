@@ -1,4 +1,4 @@
-#Ejercicios lección 4 - Bucles / loops
+#Ejercicios lección 4 - Bucles / loops - FOR
 
 #Bucle FOR:
 lista = ['a', 'b', 'c']
@@ -50,7 +50,6 @@ for alumnos in alumnos_clase:
 lista_numeros = [1,5,8,7,6,8,2,5,2,6,4,8,5,9,8,3,5,4,2,5,6,4]
 suma_pares = 0
 suma_impares = 0
-
 for numeros in lista_numeros:
     if numeros % 2 == 0:
         suma_pares = suma_pares + numeros
@@ -58,3 +57,16 @@ for numeros in lista_numeros:
         suma_impares = suma_impares + numeros
 print(f"La suma de los números pares es: {suma_pares}")
 print(f"La suma de los números impares es: {suma_impares}")
+
+#uso de break:
+nombre = input("Escribe tu nombre sin r: ")
+for letras in nombre:
+    if 'r' in nombre: #Si el nombre tiene 'r' no lo imprime
+        break #break detiene el bucle
+    print(letras)
+
+nombre = input("Escribe un país: ")
+for letras in nombre:
+    if letras == 'r':
+        break
+    print(letras)
