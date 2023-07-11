@@ -57,17 +57,14 @@ else:
     print("Debes cumplir 18 años para poder sacarte la licencia")
 
 #¿Buscas trabajo de programador python?
-habla_ingles = True
-sabe_python = False
+ingles = input("¿Hablas inglés? si o no: ")
+python = input("¿Sabes programar en python? si o no: ")
 
-if habla_ingles == True and sabe_python == True:
-    print("Cumples con los requisitos para postularte")
-
-elif habla_ingles == False and sabe_python == False:
-    print("Para postularte, necesitas saber programar en Python y tener conocimientos de inglés")
-
-elif habla_ingles == False and sabe_python == True:
-    print("Para postularte, necesitas tener conocimientos de inglés")
-
+if ingles == "si" and python == "si":
+    print("¡Te espera un futuro lleno de éxitos!")
+elif ingles == "no" and python == "si":
+    print("Necesitas tener conocimientos de inglés para acceder a un puesto de trabajo.")
+elif ingles == "si" and python == "no":
+    print("Te recomiendo aprender Python para triunfar.")
 else:
-    print("Para postularte, necesitas saber programar en Python")
+    print("Tienes un futuro complicado :(")
