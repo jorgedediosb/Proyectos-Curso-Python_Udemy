@@ -1,4 +1,4 @@
-#Ejercicios lección 4 - RANGO
+#Ejercicios lección 4 - RANGE
 
 lista = [1,2,3,4]
 for numeros in lista:
