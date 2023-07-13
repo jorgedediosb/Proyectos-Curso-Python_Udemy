@@ -52,3 +52,8 @@ def invertir_palabra(palabra):
     return palabra[::-1].upper()
 invertir = invertir_palabra('python')
 print(invertir)
+
+def chequear_numero(numero):
+    return numero in range(0,101)
+resultado = chequear_numero(323)
+print(resultado)

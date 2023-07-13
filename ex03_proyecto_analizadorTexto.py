@@ -39,7 +39,7 @@ letra_final = texto[-1]
 print(f"La primera letra de tu texto es '{letra_inicio}' y la última es '{letra_final}'.")
 print("\n")
 
-#uso reverse para invertir las palabras
+#uso reverse para invertir las palabras (invertiría las palabras de la cadena pero no cada caracter de cada palabra)
 #join para volver a unirlas
 print("TEXTO INVERTIDO")
 palabras_invertidas = palabras[::-1] #Invierte el orden de las palabras
