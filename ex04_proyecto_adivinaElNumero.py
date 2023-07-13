@@ -2,9 +2,9 @@
 
 from random import randint
 
+numero_secreto = randint(0,100)
 intentos = 0
 numero_estimado = 0
-numero_secreto = randint(0,100)
 nombre = input("¿Cuál es tu nombre?: ")
 
 print(f"""{nombre}, adivina el número secreto.
