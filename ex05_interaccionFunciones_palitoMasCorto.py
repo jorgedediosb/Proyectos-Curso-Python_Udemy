@@ -24,14 +24,20 @@ def probar_suerte():
 
 # Función para comprobar el intento del jugador
 def comprobar_intento(lista,intento):
-    if lista[intento - 1] == '-':
+    if lista[intento - 1] == lista[0]:
         #debemos restar 1 a la lista porque las listas empiezan con 0 y la lista del juego empieza en 1
-        print("¡Acertáste! Sacaste el palito más corto")
+        print("¡Acertaste! Has sacado el palito más corto")
     else:
-        print("¡Fallaste!")
-    print(f"El palito con suerte era el: {lista[intento-1]}")
+        print("Fallaste! No has sacado el palito más corto")
+        print(f"El palito más corto era el: {lista[intento - 1]}")
 
 # Invocación funciones / Interacción funciones
-palitos_mezclados = mezclar_palitos(palitos)
-seleccion = probar_suerte()
-comprobar_intento(palitos_mezclados,seleccion)
+# Preguntar al jugador si quiere volver a intentarlo
+continuar_juego = True
+while continuar_juego:
+    palitos_mezclados = mezclar_palitos(palitos)
+    seleccion = probar_suerte()
+    comprobar_intento(palitos_mezclados,seleccion)
+    respuesta = input("¿Quieres volver a intentarlo? s/n: ")
+    if respuesta.lower() != 's':
+        continuar_juego = False
