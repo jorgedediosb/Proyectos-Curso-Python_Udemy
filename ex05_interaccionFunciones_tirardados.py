@@ -1,12 +1,12 @@
-# Ejercicios lección 5 - INTERACCIÓN FUNCIONES
+# Ejercicios lección 5 - INTERACCIÓN FUNCIONES "TIRAR DADOS"
+# Crear función que arroje dos dados al azar y devuelva sus resultados:
 
-# Función (lanzar_dados) que arroje dos dados al azar y devuelva sus resultados:
-
+# Función para lanzar los dados con resultados aleatorios
 import random
- 
 def lanzar_dados():
     return random.randint(1,6), random.randint(1,6)
  
+# Función para evaluar el resultado
 def evaluar_jugada(dado1, dado2):
     suma_dados = dado1 + dado2
     if suma_dados <= 6:
