@@ -10,29 +10,41 @@ def lanzar_dados():
 def evaluar_jugada(dado1, dado2):
     suma_dados = dado1 + dado2
     if suma_dados <= 6:
-        return f"La suma de tus dados es {suma_dados}. Ups, ¡tirada muy baja!"
+        return f"Tu tirada es de {suma_dados}. ¡Tirada baja!"
     elif suma_dados > 6 and suma_dados < 10:
-        return f"La suma de tus dados es {suma_dados}. No está mal la tirada."
+        return f"Tu tirada es de {suma_dados}. Tirada media."
     else:
-        return f"La suma de tus dados es {suma_dados}. ¡Buena tirada!"
+        return f"Tu tirada es de {suma_dados}. ¡Tirada alta!"
 
 continuar_juego = True
 suma_total = 0
+valor_maximo = 21 # Valor máximo permitido
 
-# Esperar al jugador para tirar los dados
-while continuar_juego:
-    input("Presiona Enter para tirar los dados...")
+# Ininio juego
+while continuar_juego and suma_total <= valor_maximo:
+    input(f"Presiona 'Enter' para tirar los dados.\n¡No te pases de {valor_maximo}!")
     # Lanzar los dados y obtener los valores
     dado1, dado2 = lanzar_dados()
     # Evaluar la jugada y imprimir el resultado
     resultado = evaluar_jugada(dado1, dado2)
     suma_total += dado1 + dado2
     print(resultado)
-    print(f"La suma total hasta ahora es: {suma_total}")
+    print(f"Dado 1: {dado1}\nDado 2: {dado2}")
+    print(f"La suma total es: {suma_total}")
 
-    # Preguntar al jugador si quiere hacer otra tirada
-    respuesta = input("¿Deseas hacer otra tirada? (s/n): ")
-    if respuesta.lower() != "s":
+    if suma_total < valor_maximo:
+        print(f"Te quedan {valor_maximo - suma_total} para pasarte.")
+        respuesta = input("¿Deseas hacer otra tirada? (s/n): ")
+        if respuesta.lower() != "s":
+            continuar_juego = False
+
+    elif suma_total > valor_maximo:
+        print(f"OHHH Te has pasado de {valor_maximo} y has perdido!")
+        continuar_juego = False
+    
+    # suma_total == valor_maximo
+    else:
+        print(f"¡BRAVO! Has sacado exactamente {valor_maximo} ")
         continuar_juego = False
 
 print(f"La suma total de tus tiradas es: {suma_total}")
