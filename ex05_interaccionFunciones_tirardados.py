@@ -20,12 +20,12 @@ continuar_juego = True
 suma_total = 0
 valor_maximo = 21 # Valor máximo permitido
 
-# Ininio juego
+# Inicio juego
 while continuar_juego and suma_total <= valor_maximo:
     input(f"Presiona 'Enter' para tirar los dados.\n¡No te pases de {valor_maximo}!")
     # Lanzar los dados y obtener los valores
     dado1, dado2 = lanzar_dados()
-    # Evaluar la jugada y imprimir el resultado
+    # Evaluar la jugada e imprimir el resultado
     resultado = evaluar_jugada(dado1, dado2)
     suma_total += dado1 + dado2
     print(resultado)
@@ -42,8 +42,7 @@ while continuar_juego and suma_total <= valor_maximo:
         print(f"OHHH Te has pasado de {valor_maximo} y has perdido!")
         continuar_juego = False
     
-    # suma_total == valor_maximo
-    else:
+    else: # suma_total == valor_maximo
         print(f"¡BRAVO! Has sacado exactamente {valor_maximo} ")
         continuar_juego = False
 
