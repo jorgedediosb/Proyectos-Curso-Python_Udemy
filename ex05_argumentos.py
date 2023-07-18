@@ -61,7 +61,7 @@ def lista_atributos(**kwargs):
         lista.append(valor)
     return lista
 
-# Funcioón que tome como parámetros su nombre y luego una cantidad indetermida de argumentos.
+# Función que tome como parámetros su nombre y luego una cantidad indetermida de argumentos.
 def describir_persona(nombre, **kwargs):
     print(f"Características de {nombre}:")
     for clave, valor in kwargs.items():
