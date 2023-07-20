@@ -45,9 +45,13 @@ def chequear_letra(letra_elegida, palabra_oculta, vidas, coincidencias):
 
     fin = False
 
-    if letra_elegida in palabra_oculta:
+    if letra_elegida in palabra_oculta and letra_elegida not in letras_correctas: # añadiendo el 'not in' evitamos el bug de elegir siempre la misma letra y finalice el juego
         letras_correctas.append(letra_elegida)
         coincidencias += 1
+
+    elif letra_elegida in palabra_oculta and letra_elegida in letras_correctas:
+        print("Ya has encontrado esa letra. Prueba con otra")
+
     else:
         letras_incorrectas.append(letra_elegida)
         vidas -= 1
