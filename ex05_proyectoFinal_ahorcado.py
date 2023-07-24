@@ -1,6 +1,7 @@
 # Proyecto Final lección 5 - Juego "Ahorcado"
 
 from random import choice
+import os
 
 palabras = ['panadero', 'dinosaurio', 'helipuerto', 'tiburon']
 letras_correctas = []
@@ -9,7 +10,11 @@ intentos = 6
 aciertos = 0
 juego_terminado = False
 
-def elegir_palbra(lista_palabras):
+# Limpiar consola cada vez que se escribe una nueva letra
+def limpiar_consola():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def elegir_palabra(lista_palabras):
     palabra_elegida = choice(lista_palabras)
     letras_unicas = len(set(palabra_elegida))
 
@@ -30,7 +35,6 @@ def pedir_letra():
     return letra_elegida
 
 def mostrar_nuevo_tablero(palabra_elegida):
-
     lista_oculta = []
 
     for l in palabra_elegida:
@@ -45,17 +49,19 @@ def chequear_letra(letra_elegida, palabra_oculta, vidas, coincidencias):
 
     fin = False
 
-    if letra_elegida in palabra_oculta and letra_elegida not in letras_correctas: # añadiendo el 'not in' evitamos el bug de elegir siempre la misma letra y finalice el juego
+    if letra_elegida in palabra_oculta and letra_elegida not in letras_correctas:
+        # añadiendo 'not in' se evita bug al elegir siempre la misma letra y finalice el juego
         letras_correctas.append(letra_elegida)
         coincidencias += 1
 
     elif letra_elegida in palabra_oculta and letra_elegida in letras_correctas:
-        print("Ya has encontrado esa letra. Prueba con otra")
-
+        print(input("Ya has encontrado esa letra.\nPrueba con otra (pulsa ENTER)"))
+    elif letra_elegida not in palabra_oculta:
+        letras_incorrectas.append(letra_elegida)
+        vidas -= 1
     else:
         letras_incorrectas.append(letra_elegida)
         vidas -= 1
-
     if vidas == 0:
         fin = perder()
     elif coincidencias == letras_unicas:
@@ -65,17 +71,17 @@ def chequear_letra(letra_elegida, palabra_oculta, vidas, coincidencias):
 
 def perder():
     print("Te has quedado sin vidas")
-    print("La palabra oculta era " + palabra)
+    print(input("La palabra oculta era: " + palabra))
 
     return True
 
 def ganar(palabra_descubierta):
     mostrar_nuevo_tablero(palabra_descubierta)
-    print("Felicitaciones, has encontrado la palabra!!!")
+    print(input("Felicitaciones, has encontrado la palabra!!!"))
 
     return True
 
-palabra, letras_unicas = elegir_palbra(palabras)
+palabra, letras_unicas = elegir_palabra(palabras)
 
 while not juego_terminado:
     print('\n' + '*' * 40)
@@ -87,12 +93,27 @@ while not juego_terminado:
     print(f'Vidas: {intentos}')
     print('\n' + '*' * 40 + '\n')
     letra = pedir_letra()
-
+    
     intentos, terminado, aciertos = chequear_letra(letra,palabra,intentos,aciertos)
-
     juego_terminado = terminado
+    limpiar_consola()
 
-# Para que se elijan palabras al azar sin tener que meterlas:
+    #Preguntar al usuario si quiere volver a jugar
+    if juego_terminado:
+        respuesta = input("Deseas volver a jugar? (s/n): ")
+        if respuesta.lower() == 's':
+            #reiniciar juego
+            palabra, letras_unicas = elegir_palabra(palabras)
+            letras_correctas = []
+            letras_incorrectas = []
+            intentos = 6
+            acierto = 0
+            juego_terminado = False
+        else:
+            break
+    
+
+# Base de datos con todas las palabras:
 # 1º Crear base de datos en archivo de texto con las palabras (cada una en una línea).
 # 2º Lee el archivo de texto y almacena todas las palabras en una lista.
 # 3º Utilizar la función  random.choice()  para seleccionar una palabra aleatoria de la lista.

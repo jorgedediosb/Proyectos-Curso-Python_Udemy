@@ -1,4 +1,4 @@
-# Ejercicios lección 6 - Manipular archivos
+# Ejercicios lección 6 - Manipular archivos + Mçetodo Path
 
 # Imprimir un texto creado en la misma carpeta del archivo original.py (por eso no se indica una ruta)
 mi_texto = open('texto.txt') #debemos meter el archivo en una variable para abrirla
@@ -44,3 +44,21 @@ for item in registro_ultima_sesion:
 registro.close()
 registro = open('registro.txt','r')
 print(registro.read())
+
+# MÉTODO PATH
+
+# Almacena en la variable ruta_base, un objeto Path que señale el directorio base del usuario.
+from pathlib import Path
+ruta_base = Path.home()
+
+# crea una ruta relativa que nos permita llegar al archivo "practicas_path.py"
+# a partir de la siguiente estructura de carpetas: 
+# Curso Pytho > Día 6 > practicas_path.py 
+# 3# Almacena el directorio obtenido en la variable ruta. No olvides importar Path.
+from pathlib import Path
+ruta = Path("Curso Python/Día 6/practicas_path.py")
+
+# Igual, pero con una ruta absoluta que permita llegar al archivo "practicas_path.py"
+from pathlib import Path
+ruta_base = Path.home()
+ruta = ruta_base / "Curso Python" / "Día 6" / "practicas_path.py"
