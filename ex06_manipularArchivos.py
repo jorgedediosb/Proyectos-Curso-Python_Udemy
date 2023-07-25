@@ -62,3 +62,45 @@ ruta = Path("Curso Python/Día 6/practicas_path.py")
 from pathlib import Path
 ruta_base = Path.home()
 ruta = ruta_base / "Curso Python" / "Día 6" / "practicas_path.py"
+
+# FUNCIONES
+# Función que abre un archivo como parámetro, y devuelva su contenido.
+def abrir_archivo(nombre_archivo):
+    contenido = ''
+    archivo = open(nombre_archivo,'r')
+    contenido = archivo.read()
+    archivo.close()
+    return contenido
+# Ejemplo de uso
+nombre_archivo = "archivo.txt"
+contenido_archivo = abrir_leer(nombre_archivo)
+print(contenido_archivo)
+
+
+# Crea una función que abra un archivo indicado como parámetro,
+# y sobrescriba cualquier contenido anterior por el texto "contenido eliminado"
+
+def sobrescribir(nombre_archivo):
+    archivo = open(nombre_archivo,'w')
+    archivo.write("contenido eliminado")
+    archivo.close()
+    return "Contenido sobrescrito exitosamente."
+# Ejemplo de uso
+nombre_archivo = "archivo.txt"
+resultado = sobrescribir(nombre_archivo)
+print(resultado)
+
+
+# Función que abre un archivo indicado como parámetro,
+# lo actualice añadiendo una línea al final que indique "se ha registrado un error de ejecución".
+# Finalmente, cierra el archivo abierto.
+
+def registro_error(nombre_archivo):
+    archivo = open(nombre_archivo, 'a')
+    archivo.write("Se ha registrado un error de ejecución\n")
+    archivo.close()
+    return "Error registrado exitosamente."
+# Ejemplo de uso
+nombre_archivo = "registro.txt"
+resultado = registro_error(nombre_archivo)
+print(resultado)
