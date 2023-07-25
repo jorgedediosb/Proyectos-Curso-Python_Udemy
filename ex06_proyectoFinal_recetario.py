@@ -4,8 +4,10 @@ import os
 from pathlib import Path
 from os import system
 
-mi_ruta = Path(Path.home(), "Proyecto+7_Recetario_Recetas")
+mi_ruta = Path(Path.home(), "/Users/jorge/PERSONAL/iCode/Cursos Código/Curso Python Udemy_Federico Garay/Proyectos-Curso-Python_Udemy/ex06_proyectoFinal_recetario_recetas")
 
+# Asegurarse de que el directorio existe creando los direcctorios ni no existen
+# mi_ruta.mkdir(parents=True, exist_ok=True)
 
 def contar_recetas(ruta):
     contador = 0
@@ -16,7 +18,7 @@ def contar_recetas(ruta):
 
 
 def inicio():
-    system('cls')
+    system('clear')
     print('*' * 50)
     print('*' * 5 + " Bienvenido al administrador de recetas " + '*' * 5)
     print('*' * 50)
