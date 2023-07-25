@@ -73,7 +73,7 @@ def abrir_archivo(nombre_archivo):
     return contenido
 # Ejemplo de uso
 nombre_archivo = "archivo.txt"
-contenido_archivo = abrir_leer(nombre_archivo)
+contenido_archivo = abrir_archivo(nombre_archivo)
 print(contenido_archivo)
 
 
