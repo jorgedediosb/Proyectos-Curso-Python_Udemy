@@ -1,4 +1,4 @@
-# Ejercicios lección 7 - PROGRAMACIÓN ORIENTADA A OBJETOS
+# Ejercicios lección 7 - PROGRAMACIÓN ORIENTADA A OBJETOS (Clases, métodos y atributos)
 
 # CLASES
 # Clase llamada Personaje y un objeto a partir de ella, llamado harry_potter
@@ -88,12 +88,10 @@ Mascota.respirar()
 # Métodos de clases
 class Jugador:
     vivo = False
-
     @classmethod
     def revivir(cls):
         cls.vivo = True
         print("El jugador ha sido revivido")
-
 print(Jugador.vivo)
 Jugador.revivir()
 print(Jugador.vivo)
