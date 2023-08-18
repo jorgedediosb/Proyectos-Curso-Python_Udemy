@@ -1,4 +1,4 @@
-# Ejercicios lección 7 - MANEJO DE ERRORES
+# Ejercicios lección 8 - MANEJO DE ERRORES
 
 def pedirNumero():
     while True:
