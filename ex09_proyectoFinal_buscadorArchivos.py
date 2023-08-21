@@ -9,7 +9,7 @@ import math
 
 inicio = time.time()
 
-ruta = 'C:\\Users\\Usuario\\Desktop\\Mi_Gran_Directorio'
+ruta = '\\Users\\jorge\\PERSONAL\\iCode\\Cursos Código\\Curso Python Udemy_Federico Garay\\Proyectos-Curso-Python_Udemy\\ex09_proyectoFinal_archivos'
 
 mi_patron = r'N\D{3}-\d{5}'
 
