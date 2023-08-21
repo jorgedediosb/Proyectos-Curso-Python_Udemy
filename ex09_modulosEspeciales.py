@@ -16,8 +16,8 @@ lista_ciudades = deque(["Londres", "Berlin", "París", "Madrid", "Roma", "Moscú
 print(lista_ciudades)
 
 from collections import namedtuple
-mi_tupla = namedtuple('Persona', ['nombre', 'edad', 'altura'])
-persona1 = Persona('Marcos', 39, 1.78)
+Asistente = namedtuple('Asistente', ['nombre', 'edad', 'altura'])
+persona1 = Asistente('Marcos', 39, 1.78)
 print(persona1)
 
 
