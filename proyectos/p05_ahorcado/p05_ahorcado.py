@@ -1,4 +1,8 @@
-# Proyecto Final lección 5 - Juego "Ahorcado"
+# Proyecto "Juego del ahorcado"
+'''
+El juego elige una palabra al azar de una lista.
+El jugador debe adivinarla en 6 intentos.
+'''
 
 from random import choice
 import os
@@ -111,14 +115,13 @@ while not juego_terminado:
             juego_terminado = False
         else:
             break
-    
-
-# Base de datos con todas las palabras:
-# 1º Crear base de datos en archivo de texto con las palabras (cada una en una línea).
-# 2º Lee el archivo de texto y almacena todas las palabras en una lista.
-# 3º Utilizar la función  random.choice()  para seleccionar una palabra aleatoria de la lista.
-# Ejemplo:
 '''
+Base de datos con todas las palabras:
+1º Crear base de datos en archivo de texto con las palabras (cada una en una línea).
+2º Lee el archivo de texto y almacena todas las palabras en una lista.
+3º Utilizar la función  random.choice()  para seleccionar una palabra aleatoria de la lista.
+Ejemplo:
+
 import random
  def obtener_palabra_aleatoria():
     with open("base_de_datos.txt", "r") as archivo:
