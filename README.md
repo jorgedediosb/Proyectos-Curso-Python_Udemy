@@ -1,2 +1,1 @@
-# Proyectos-Curso-Python_Udemy
-Ejercicios realizados en el curso de Python de Federico Garay
+Proyectos realizados en Python, tanto personales como proyectos de cursos de programación.
