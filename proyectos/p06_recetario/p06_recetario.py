@@ -1,10 +1,14 @@
-# Proyecto Final lección 6 - Recetario
+# PROYECTO "RECETARIO"
+'''
+El programa crea una base de datos para añadir recetas de cocina.
+Las recetas se pueden guardar en distintas categorias
+'''
 
 import os
 from pathlib import Path
 from os import system
 
-mi_ruta = Path(Path.home(), "/Users/jorge/PERSONAL/iCode/Cursos Código/Curso Python Udemy_Federico Garay/Proyectos-Curso-Python_Udemy/ex06_proyectoFinal_recetario_recetas")
+mi_ruta = Path(Path.home(), "/Users/jorge/PERSONAL/iCode/PROYECTOS/Proyectos_Python/proyectos/p06_recetario/p06_recetario_recetas")
 
 # Asegurarse de que el directorio existe creando los direcctorios ni no existen
 # mi_ruta.mkdir(parents=True, exist_ok=True)
