@@ -1,5 +1,10 @@
-# PROYECTO LECCIÓN 4 'ADIVINA EL NÚMERO'
+# PROYECTO 'ADIVINA EL NÚMERO'
+'''
+El programa/juego te da 8 oportunnidades para que averigues
+el nº escigido al hazar
+'''
 
+#librería para elegir nºs aleatorios
 from random import randint
 
 numero_secreto = randint(0,100)
