@@ -1,4 +1,7 @@
-# PROYECTO FINAL LECCIÓN 9 - BUSCADOR DE ARCHIVOS
+# PROYECTO "BUSCADOR DE ARCHIVOS"
+'''
+El programa busca un archivo de un directorio
+'''
 
 import re
 import os
@@ -9,7 +12,7 @@ import math
 
 inicio = time.time()
 
-ruta = '\\Users\\jorge\\PERSONAL\\iCode\\Cursos Código\\Curso Python Udemy_Federico Garay\\Proyectos-Curso-Python_Udemy\\ex09_proyectoFinal_archivos'
+ruta = '\\Users\\jorge\\PERSONAL\\iCode\\PROYECTOS\\Proyectos_Python\\proyectos\\p09_buscadorArchivos\\p09_buscadorArchivos_archivos'
 
 mi_patron = r'N\D{3}-\d{5}'
 

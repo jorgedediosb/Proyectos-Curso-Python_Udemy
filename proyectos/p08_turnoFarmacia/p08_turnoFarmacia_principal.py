@@ -1,6 +1,8 @@
-# PROYECTO FINAL EX08 - TURNO FARMACIA
-
-import ex08_proyectoFinal_turnoFarmacia_numeros
+# PROYECTO "TURNO FARMACIA"
+'''
+El programa simula una máquina de turnos de una farmacia para ser atendido.
+'''
+import p08_turnoFarmacia_numeros
 
 def preguntar():
 
@@ -16,7 +18,7 @@ def preguntar():
         else:
             break
 
-    ex08_proyectoFinal_turnoFarmacia_numeros.decorador(mi_seccion)
+    p08_turnoFarmacia_numeros.decorador(mi_seccion)
 
 
 def inicio():

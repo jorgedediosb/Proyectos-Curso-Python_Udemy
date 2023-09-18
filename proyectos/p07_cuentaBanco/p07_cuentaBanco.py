@@ -1,4 +1,10 @@
-# PROYECTO FINAL LECCIÓN 7 - CUENTA DE BANCO
+# PROYECTO "CUENTA DE BANCO"
+'''
+El proyecto simula una cuenta bancaria en donde el uniario puede:
+1. Ingresar dinero.
+2. Sacar dinero.
+3. Consultar balance.
+'''
 
 class Persona:
 
