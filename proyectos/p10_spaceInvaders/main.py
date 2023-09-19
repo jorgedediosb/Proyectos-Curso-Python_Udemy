@@ -1,3 +1,4 @@
+import os
 import pygame
 import random
 import math
@@ -8,6 +9,30 @@ pygame.init()
 
 # Crear la pantalla
 pantalla = pygame.display.set_mode((800, 600))
+
+# Ruta de la carpeta que contiene los archivos
+carpeta_archivos = os.path.join(os.path.dirname(__file__),"recursos")
+
+# Ruta de los archivos dentro de la carpeta
+ruta_icono = os.path.join(carpeta_archivos, "ovni.png")
+ruta_fondo = os.path.join(carpeta_archivos, "Fondo.jpg")
+ruta_musica = os.path.join(carpeta_archivos, "MusicaFondo.mp3")
+ruta_jugador = os.path.join(carpeta_archivos, "cohete.png")
+ruta_enemigo = os.path.join(carpeta_archivos, "enemigo.png")
+ruta_bala = os.path.join(carpeta_archivos, "bala.png")
+ruta_sonido_bala = os.path.join(carpeta_archivos, "disparo.mp3")
+ruta_sonido_colision = os.path.join(carpeta_archivos, "golpe.mp3")
+
+# Cargar los archivos con las rutas completas
+icono = pygame.image.load(ruta_icono)
+fondo = pygame.image.load(ruta_fondo)
+mixer.music.load(ruta_musica)
+img_jugador = pygame.image.load(ruta_jugador)
+img_enemigo = []
+img_enemigo.append(pygame.image.load(ruta_enemigo))
+img_bala = pygame.image.load(ruta_bala)
+sonido_bala = mixer.Sound(ruta_sonido_bala)
+sonido_colision = mixer.Sound(ruta_sonido_colision)
 
 # Titulo e Icono
 pygame.display.set_caption("Invasión Espacial")
