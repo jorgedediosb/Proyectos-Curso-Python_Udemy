@@ -1,3 +1,10 @@
+
+# PROYECTO 'JUEGO SPACE INVADERS'
+'''
+Simulador del juego space invader.
+En la carpeta 'recursos' están los recursos necesarios.
+'''
+
 import os
 import pygame
 import random
