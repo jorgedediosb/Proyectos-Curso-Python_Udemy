@@ -12,7 +12,7 @@ import math
 
 inicio = time.time()
 
-ruta = '\\Users\\jorge\\PERSONAL\\iCode\\PROYECTOS\\Proyectos_Python\\proyectos\\p09_buscadorArchivos\\archivos'
+ruta = '\\Users\\jorge\\PERSONAL\\iCode\\PROYECTOS\\Proyectos_Python\\proyectos\\p09_buscadorArchivos'
 
 mi_patron = r'N\D{3}-\d{5}'
 
