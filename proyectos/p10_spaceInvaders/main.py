@@ -22,6 +22,7 @@ ruta_enemigo = os.path.join(carpeta_archivos, "enemigo.png")
 ruta_bala = os.path.join(carpeta_archivos, "bala.png")
 ruta_sonido_bala = os.path.join(carpeta_archivos, "disparo.mp3")
 ruta_sonido_colision = os.path.join(carpeta_archivos, "golpe.mp3")
+ruta_tipografia = os.path.join(carpeta_archivos, "Fastest.ttf")
 
 # Cargar los archivos con las rutas completas
 icono = pygame.image.load(ruta_icono)
@@ -36,17 +37,17 @@ sonido_colision = mixer.Sound(ruta_sonido_colision)
 
 # Titulo e Icono
 pygame.display.set_caption("Invasión Espacial")
-icono = pygame.image.load("ovni.png")
+icono = pygame.image.load(ruta_icono)
 pygame.display.set_icon(icono)
-fondo = pygame.image.load('fondo.jpg')
+fondo = pygame.image.load(ruta_fondo)
 
 # agregar musica
-mixer.music.load('MusicaFondo.mp3')
+mixer.music.load(ruta_musica)
 mixer.music.set_volume(0.3)
 mixer.music.play(-1)
 
 # variables del Jugador
-img_jugador = pygame.image.load("cohete.png")
+img_jugador= pygame.image.load(ruta_jugador)
 jugador_x = 368
 jugador_y = 500
 jugador_x_cambio = 0
@@ -60,14 +61,14 @@ enemigo_y_cambio = []
 cantidad_enemigos = 8
 
 for e in range(cantidad_enemigos):
-    img_enemigo.append(pygame.image.load("enemigo.png"))
+    img_enemigo.append(pygame.image.load(ruta_enemigo))
     enemigo_x.append(random.randint(0, 736))
     enemigo_y.append(random.randint(50, 200))
     enemigo_x_cambio.append(0.5)
     enemigo_y_cambio.append(50)
 
 # variables de la bala
-img_bala = pygame.image.load("bala.png")
+img_bala = pygame.image.load(ruta_bala)
 bala_x = 0
 bala_y = 500
 bala_x_cambio = 0
@@ -76,12 +77,12 @@ bala_visible = False
 
 # puntaje
 puntaje = 0
-fuente = pygame.font.Font('fastest.ttf', 32)
+fuente = pygame.font.Font(ruta_tipografia, 32)
 texto_x = 10
 texto_y = 10
 
 # texto final de juego
-fuente_final = pygame.font.Font('fastest.ttf', 40)
+fuente_final = pygame.font.Font(ruta_tipografia, 40)
 
 
 def texto_final():
@@ -142,7 +143,7 @@ while se_ejecuta:
             if evento.key == pygame.K_RIGHT:
                 jugador_x_cambio = 1
             if evento.key == pygame.K_SPACE:
-                sonido_bala = mixer.Sound('disparo.mp3')
+                sonido_bala = mixer.Sound(ruta_sonido_bala)
                 sonido_bala.play()
                 if not bala_visible:
                     bala_x = jugador_x
@@ -185,7 +186,7 @@ while se_ejecuta:
         # colision
         colision = hay_colision(enemigo_x[e], enemigo_y[e], bala_x, bala_y)
         if colision:
-            sonido_colision = mixer.Sound('golpe.mp3')
+            sonido_colision = mixer.Sound(ruta_sonido_colision)
             sonido_colision.play()
             bala_y = 500
             bala_visible = False
@@ -208,7 +209,7 @@ while se_ejecuta:
     jugador(jugador_x, jugador_y)
 
     mostrar_puntaje(texto_x, texto_y)
-
+    
     # actualizar
     pygame.display.update()
 
