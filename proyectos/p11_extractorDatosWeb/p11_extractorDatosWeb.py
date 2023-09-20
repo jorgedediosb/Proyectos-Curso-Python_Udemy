@@ -1,4 +1,6 @@
+# biblioteca 'BeautifulSoup (bs4)' para extraer o modificar datos de archivos HTML y XML
 import bs4
+# biblioteca 'requests' para enviar solicitudes HTTP/1.1 (), autenticación y cookies.
 import requests
 
 # crear url sin numero de pagina
