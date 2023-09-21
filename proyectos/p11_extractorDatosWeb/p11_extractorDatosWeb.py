@@ -3,8 +3,13 @@ import bs4
 # biblioteca 'requests' para enviar solicitudes HTTP/1.1 (), autenticación y cookies.
 import requests
 
-# crear url sin numero de pagina
-url_base = 'https://books.toscrape.com/catalogue/page-{}.html'
+resultado = requests.get('https://escueladirecta-blog.blogspot.com')
+elementos = bs4.BeautifulSoup(resultado.text, 'lxml')
+print(elementos.select('title'))
+
+'''
+# Url de la pagina donde extraemos info
+url_base = 'https://escueladirecta-blog.blogspot.com'
 
 # lista de titulos con 4 o 5 estrellas
 titulos_rating_alto = []
@@ -35,3 +40,4 @@ for pagina in range(1, 51):
 # ver libros 4 u 5 estrellas en consola
 for t in titulos_rating_alto:
     print(t)
+'''
