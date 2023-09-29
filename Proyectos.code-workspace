@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "Proyectos_Python",
+			"path": "Proyectos_Python"
+		},
+		{
+			"name": "Testing",
+			"path": "Testing"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}
