@@ -3,7 +3,7 @@
 # 18. Adivina el número entre 1 y 100.
 from random import randint
 
-def generaNumeroAleatorio(min, max):
+def generaNumeroAleatorio(min, max): #función que genera el número aleatorio con corrección por si min > max
     if min > max:
         aux = min
         min = max
