@@ -56,3 +56,18 @@ print(es_vocal(mi_letra))
 # que sumen y multipliquen respectivamente todos los números de una lista.
 # Por ejemplo: sum([1,2,3,4]) debería devolver 10 y multip([1,2,3,4]) debería devolver 24.
 
+def suma(lista):
+    sum = 0
+    for n in lista:
+        sum += n
+    return sum
+
+def multiplicar(lista):
+    mult = 1
+    for n in lista:
+        mult *= n
+    return mult
+
+mi_lista = [1, 2, 3, 4]
+print(f'la suma total de la lista es {suma(mi_lista)}')
+print('la multiplicación total de la lista es', multiplicar(mi_lista))
