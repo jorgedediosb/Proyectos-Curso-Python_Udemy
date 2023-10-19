@@ -1,7 +1,6 @@
 # PROYECTO 'ADIVINA EL NÚMERO'
 '''
-El programa te da 8 oportunnidades para que averigues
-el nº que ha escogido al hazar
+El programa te da 8 oportunidades para que averigues un nº escogido al azar entre 0 y 100
 '''
 
 #librería para elegir nºs aleatorios
