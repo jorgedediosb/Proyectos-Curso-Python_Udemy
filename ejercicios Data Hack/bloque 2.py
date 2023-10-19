@@ -1,3 +1,5 @@
+# Ejercicios extraídos de: https://es.slideshare.net/uni_fcys_sistemas/ejercicios-resueltos-con-python
+
 # 6. Añadir al ejercicio anterior, que si está entre 11 y 20 muestre otro mensaje diferente
 # si está entre 21 y 30 otro mensaje.
 numero = 50
