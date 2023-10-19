@@ -20,9 +20,11 @@ while intentos < 8:
     numero_estimado = int(input("¿Cuál es el número?: "))
     intentos += 1
     if numero_estimado < numero_secreto:
-        print("¡Error! El número es mayor.")
+        print("¡Error! El número es MAYOR.")
+        print(f'Te quedan {8 - intentos} intentos')
     elif numero_estimado > numero_secreto:
-        print("¡Error! El número es menor.")
+        print("¡Error! El número es MENOR.")
+        print(f'Te quedan {8 - intentos} intentos')
     else:
         print(f"¡Correcto! {nombre} has adivinado el número en {intentos} intentos.\nEl número secreto era el {numero_secreto}.")
         break
