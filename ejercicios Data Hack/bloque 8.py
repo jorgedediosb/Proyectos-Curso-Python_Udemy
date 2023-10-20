@@ -71,6 +71,7 @@ print(max_in_list(mi_lista))
 
 # 30. Escribir una función mas_larga() que tome una lista de palabras y devuelva la más larga.
 
+print('\nEJERCICIO 30:')
 def mas_larga(lista):
     #Excepción lista vacía:
     if not lista:
@@ -83,3 +84,16 @@ def mas_larga(lista):
 
 mi_lista = ['pato', 'conejo', 'cocodrilo']
 print(mas_larga(mi_lista))
+
+
+# 31. Escribir una función filtrar_palabras() que tome una lista de palabras y un entero n,
+# y devuelva las palabras que tengan más de n caracteres.
+
+print('\nEJERCICIO 31:')
+def filtrar_palabras(lista, n):
+    for c in lista:
+        if len(c) > n:
+            print(c)
+
+mi_lista = ['hola', 'hi', 'quepazah']
+filtrar_palabras(mi_lista, 4)
