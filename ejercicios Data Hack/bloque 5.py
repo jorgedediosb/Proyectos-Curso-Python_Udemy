@@ -3,7 +3,10 @@
 # 18. Adivina el número entre 1 y 100.
 from random import randint
 
-def generaNumeroAleatorio(min, max): #función que genera el número aleatorio con corrección por si min > max
+print('EJERCICIO 18 "ADIVINA EL Nº"')
+
+#función que genera el número aleatorio con corrección por si min > max:
+def generaNumeroAleatorio(min, max):
     if min > max:
         aux = min
         min = max
@@ -13,9 +16,11 @@ def generaNumeroAleatorio(min, max): #función que genera el número aleatorio c
 numero_buscado = generaNumeroAleatorio(1, 100)
 encontrado = False
 intentos = 0
-while not encontrado: #mientras encontrado sea Falso
+#Mientras 'encontrado' sea Falso (no lo hayamos encontrado):
+while not encontrado:
     try:
         numero_jugador = int(input('Adivina el número que estoy pensando: '))
+    #Excepción por si no se escribe un dígito:
     except ValueError:
         print('¡Debes escribir un número!')
         continue

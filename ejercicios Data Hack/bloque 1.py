@@ -17,16 +17,16 @@ print('El precio del producto sin iva es:', precio_producto, '$')
 print('El precio del producto con iva es:', (precio_iva + precio_producto), '$')
 
 # 4. De dos números, saber cuál es el mayor.
-a = 1
+a = 8
 b = 7
 if a > b:
-    print('a es MAYOR que b')
+    print(f'{a} es MAYOR que {b}')
 else:
-    print('a es MENOR que b')
+    print(f'{a} es MENOR que {b}')
 
 # 5. Crea una variable numérica y si esta entre 0 y 10, mostrar un mensaje indicándolo.
 a = 11
 if a >= 0 and a <= 10:
     print('el número está entre 0 y 10, el número es', a)
 else:
-    print('el número no está entre 0 y 10, el número es', a )
+    print('el número NO está entre 0 y 10, el número es', a )
