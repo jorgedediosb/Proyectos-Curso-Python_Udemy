@@ -1,39 +1,66 @@
 # Ejercicios extraídos de: https://es.slideshare.net/uni_fcys_sistemas/ejercicios-resueltos-con-python
 
-# 6. Añadir al ejercicio anterior, que si está entre 11 y 20 muestre otro mensaje diferente
-# si está entre 21 y 30 otro mensaje.
-numero = int(input('Escribe un número: '))
-if numero >= 0 and numero <= 10:
-    print('En número está entre 0 y 10, el número es', numero)
-elif numero >= 11 and numero <= 20:
-    print('En número está entre 11 y 20, el número es', numero)
-elif numero >= 21 and numero <= 30:
-    print('En número está entre 21 y 30, el número es', numero)
+# 11. Generar un rango (lista) entre 0 y 10 (creciente).
+print('EJERCICIO 11')
+rango = list(range(11))
+print(rango)
+
+# 12.1 Generar un rango (lista) entre 5 y 10 (incluyendo el 5 y el 10).
+print('EJERCICIO 12')
+rango = list(range(5, 11))
+print(rango)
+
+# 12.2 Generar un número (aleatorio) entre 5 y 10 (incluyendo el 5 y el 10).
+import random
+# nº con varios decimales:
+numero_aleatorio = random.uniform(5, 10) 
+print(numero_aleatorio)
+ # El nº con varios decimales se reduce a 2 decimales:
+numero_aleatorio = round(numero_aleatorio, 2)
+print(numero_aleatorio)
+# nº entero:
+numero_aleatorio = random.randint(5, 10)
+print(numero_aleatorio)
+
+# 13. Generar un rango de 10 a 0 (decreciente).
+print('EJERCICIO 13')
+rango = list(range(10, 0, -1))
+print(rango)
+
+# 14. Generar un rango de 0 a 10 y de 15 a 20, incluidos el 10 y 20.
+print('EJERCICIO 14')
+print('OPCIÓNN 1 (rangos separados):')
+rango1 = list(range(0, 11))
+print(rango1)
+rango2 = list(range(15, 21))
+print(rango2)
+
+print('OPCION 2 (rangos juntos):')
+ambos_rangos = rango1 + rango2
+print(ambos_rangos)
+
+# 15. Generar un rango desde O hasta la longitud de la cadena "Hola mundo".
+print('EJERCICIO 15')
+rango_palabra = list(range(0, len('Hola Mundo Viejuno')))
+print(rango_palabra)
+
+
+# 16. Pide dos cadenas por teclado, muestra ambas cadenas con un espacio entre ellas
+# y con los 2 primeros CARACTERES INTERCAMBIADOS. Por ejemplo, hola mundo pasaría a mula hondo.
+print('EJERCICIO 16:')
+cadena1 = input('Dame la primera cadena de texto: ')
+cadena2 = input('Dame la segunda cadena de texto: ')
+#[:2] coge las 2 primeras letras y [2:] coge el resto de letras a partir de la 2ª:
+print(cadena2[:2] + cadena1[2:] + "" + cadena1[:2] + cadena2[2:])
+
+
+# 17. Pide una cadena e indica si es un PALÍNDROMO o no.
+print('EJERCICIO 17:')
+cadena1 = input('Escribe un texto: ')
+#Se da 'la vuelta' a cadena con [::-1] para crear el texto al revés:
+palindromo = cadena1[::-1]
+print(f'Tu texto al revés es: {palindromo}')
+if (cadena1 == palindromo):
+    print('Tu texto es un palíndromo.')
 else:
-    print('El número es mayor a 30, el número es', numero)
-
-# 7. Usar un while para mostrar los números del 1 al 100.
-n = 1
-while n <= 100:
-    print(n)
-    n += 1
-print('FIN BUCLE WHILE')
-
-# 8. Mostrar con un for los números del 1 al 100.
-for n in range(1, 101):
-    print(n)
-print('FIN BUCLE FOR')
-
-# 9. Mostrar los caracteres de la cadena "Hola mundo".
-for c in 'Hola Mundo':
-    print(c)
-
-# 10. Mostrar los números pares entre 1 al 100.
-print('FORMA 1:')
-for n in range(1, 101):
-    if(n % 2 == 0):
-        print(n)
-
-print('FORMA 2:')
-for n in range(2, 101, 2):
-    print(n)
+    print('Tu texto no es un palíndromo.')

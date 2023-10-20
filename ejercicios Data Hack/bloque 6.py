@@ -1,92 +1,99 @@
 # Ejercicios extraídos de: https://es.slideshare.net/uni_fcys_sistemas/ejercicios-resueltos-con-python
 
-# 19. Definir una función max() que tome como argumento dos números y devuelva el mayor de ellos.
+# 26. Definir una función superposicion() que tome dos listas
+# y devuelva True si tienen al menos 1 elemento en común o devuelva False de lo contrario.
+# Escribir la función usando el bucle for anidado.
 
-print('EJERCICIO 19')
+print('EJERCICIO 26:')
+def superposicion(lista1, lista2):
+    for x in lista1:
+        for y in lista2:
+            if x == y:
+                return True
+            else:
+                return False
 
-def max(n1, n2):
-    if n1 > n2:
-        print(f'{n1} es mayor que {n2}.')
-    elif n2 > n1:
-        print(f'{n2} es mayor que {n1}.')
-    else:
-        print('Los números son iguales')
-
-n1 = int(input('Escribe un nº: '))
-n2 = int(input('Escribe otro nº: '))
-max(n1, n2)
-
-# 20. Definir una función max_de_tres(), que tome tres números como argumentos y devuelva el mayor de ellos.
-
-print('\nEJERCICIO 20')
-
-def max_de_tres(n1, n2, n3):
-    if n1 > n2 and n1 > n3:
-        print('El nº mayor es', n1)
-    elif n2 > n1 and n2 > n3:
-        print('El nº mayor es', n2)
-    elif n3 > n1 and n3 > n2:
-        print('El nº mayor es', n3)
-    else:
-        print('Los tres números son iguales')
-
-n1 = int(input('Escribe el 1er nº: '))
-n2 = int(input('Escribe el 2º nº: '))
-n3 = int(input('Escribe el 3er nº: '))
-max_de_tres(n1, n2, n3)
+mi_lista1 = [1,2,3]
+mi_lista2 = [1,2,3]
+print(superposicion(mi_lista1, mi_lista2))
 
 
+# 27. Definir una función generar_n_caracteres() que tome un entero n
+# y devuelva el caracter multiplicado por n.
+# Por ejemplo: generar__caracteres(5, "×") debería devolver "xxxxx".
 
-# 21. Definir una función que calcule la longitud de una lista o una cadena dada.
-# Que haga lo que hace len()
+print('\nEJERCICIO 27:')
 
-print('\nEJERCICIO 21')
+print('Opción 1:')
+def generar_n_caracteres(n, caracter):
+    print(n * caracter)
 
-def largo_cadena(lista):
-    cont = 0
+generar_n_caracteres(5, 'x')
+
+print('Opción 2:')
+def generar_multiplicacion(n):
+    print(n ** n)
+
+generar_multiplicacion(5)
+
+# 28. Definir un histograma procedimiento() que tome una lista de números enteros
+# e imprima un histograma en la pantalla.
+# Ejemplo: procedimiento ([4, 9, 7]) debería imprimir lo siguiente:
+# ****
+# *********
+# *******
+
+print('\nEJERCICIO 28:')
+def procedimiento(lista):
     for n in lista:
-        cont += 1
-    return cont
+        print(n * '*')
 
-mi_lista = [0,1,2,3,4,5,6]
-longitud = largo_cadena(mi_lista)
-print(f'La longitud de la lista es de {longitud} elementos.')
+mi_lista = ([4, 9, 7])
+procedimiento(mi_lista)
 
+# 29. La función max() y la función max_de_tres() (ejercicios 19 y 20), solo van a funcionar para 2 o 3 números.
+# Supongamos que tenemos más de 3 números o no sabemos cuántos números son.
+# Escribir una función max_in_list() que tome una lista de números y devuelva el más grande.
 
-# 22. Escribir una función que tome un carácter y devuelva True si es una vocal,
-# de lo contrario devuelve False.
-
-print('\nEJERCICIO 22')
-
-def es_vocal(x):
-    if x == 'a' or x == 'e' or x == 'i' or x == 'o' or x == 'u':
-        return True
-    elif x == 'A' or x == 'E' or x == 'I' or x == 'O' or x == 'U':
-        return True
-    else:
-        return False
-
-mi_letra = 'j'
-print(es_vocal(mi_letra))
-
-# 23. Escribir una función sum() y una función multip()
-# que sumen y multipliquen respectivamente todos los números de una lista.
-# Por ejemplo: sum([1,2,3,4]) debería devolver 10 y multip([1,2,3,4]) debería devolver 24.
-
-print('\nEJERCICIO 23')
-
-def suma(lista):
-    sum = 0
+print('\nEJERCICIO 29:')
+def max_in_list(lista):
+    #Excepción para una lista vacía:
+    if not lista:
+        return None
+    max_valor = lista[0]
     for n in lista:
-        sum += n
-    return sum
+        if n > max_valor:
+            max_valor = n
+    return max_valor
 
-def multiplicar(lista):
-    mult = 1
-    for n in lista:
-        mult *= n
-    return mult
+mi_lista = [4,3,6,7,2,1]
+print(max_in_list(mi_lista))
 
-mi_lista = [1, 2, 3, 4]
-print(f'la suma total de la lista es {suma(mi_lista)}')
-print('la multiplicación total de la lista es', multiplicar(mi_lista))
+# 30. Escribir una función mas_larga() que tome una lista de palabras y devuelva la más larga.
+
+print('\nEJERCICIO 30:')
+def mas_larga(lista):
+    #Excepción lista vacía:
+    if not lista:
+        return None
+    palabra_mas_larga = lista[0]
+    for palabra in lista:
+        if len(palabra) > len(palabra_mas_larga):
+            palabra_mas_larga = palabra
+    return palabra_mas_larga
+
+mi_lista = ['pato', 'conejo', 'cocodrilo']
+print(mas_larga(mi_lista))
+
+
+# 31. Escribir una función filtrar_palabras() que tome una lista de palabras y un entero n,
+# y devuelva las palabras que tengan más de n caracteres.
+
+print('\nEJERCICIO 31:')
+def filtrar_palabras(lista, n):
+    for c in lista:
+        if len(c) > n:
+            print(c)
+
+mi_lista = ['hola', 'hi', 'quepazah']
+filtrar_palabras(mi_lista, 4)
