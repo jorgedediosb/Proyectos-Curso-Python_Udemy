@@ -1,5 +1,3 @@
-'''
-
 # Ejercicios página https://aprendeconalf.es/docencia/python/ejercicios/
 
 # 01. Escribir un programa que pregunte el nombre del usuario en la consola y un nº entero
@@ -126,7 +124,6 @@ lista_compra = compra.split(',')
 for n in lista_compra:
     print(n)
 
-'''
 # 11. Escribir un programa que pregunte el nombre el un producto, su precio y un número de unidades
 # y muestre una cadena con el nombre del producto seguido de:
 # su precio unitario con 6 dígitos enteros y 2 decimales,
@@ -138,7 +135,4 @@ precio_producto = float(input('Precio: '))
 unidades_producto = int(input('Unidades: '))
 coste_total = precio_producto * unidades_producto
 print(f"{nombre_producto}:{precio_producto:8.2f}\nUnidades: {unidades_producto:03d}\nTotal: {coste_total:8.2f}")
-
-
-
 
