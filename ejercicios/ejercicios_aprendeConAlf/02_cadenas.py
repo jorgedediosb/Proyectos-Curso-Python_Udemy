@@ -133,5 +133,12 @@ for n in lista_compra:
 # el número de unidades con tres dígitos
 # y el coste total con 8 dígitos enteros y 2 decimales.
 
+nombre_producto = input('Producto: ')
+precio_producto = float(input('Precio: '))
+unidades_producto = int(input('Unidades: '))
+coste_total = precio_producto * unidades_producto
+print(f"{nombre_producto}:{precio_producto:8.2f}\nUnidades: {unidades_producto:03d}\nTotal: {coste_total:8.2f}")
+
+
 
 
