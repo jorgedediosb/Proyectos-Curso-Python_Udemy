@@ -1,5 +1,5 @@
 # Ejercicios página https://aprendeconalf.es/docencia/python/ejercicios/
-'''
+
 # 01. Escribir un programa que pregunte al usuario su edad y muestre por pantalla si es mayor de edad o no.
 
 edad = int(input('Escribe tu edad: '))
@@ -91,7 +91,6 @@ elif renta > 35000 and renta <= 60000:
 else:
     print('Tipo impositivo: 45%')
 
-'''
 # 08. En una empresa, sus empleados son evaluados al final de cada año.
 # Los puntos en la evaluación comienzan en 0.0 y pueden ir aumentando, traduciéndose en mejores beneficios. 
 # Los puntos pueden ser 0.0, 0.4, 0.6 o más, pero no valores intermedios entre las cifras mencionadas.
@@ -117,3 +116,49 @@ if nivel == '':
 else:
     print('Tu nivel de rendimiento es %s' % nivel)
     print('Tu salario es %.2f' % (bonificacion * puntos))
+
+# 09. Escribir un programa para una empresa que quiere calcular el precio por entrar.
+# Debe preguntar la edad del cliente y mostrar el precio de la entrada.
+# Si el cliente es menor de 4 años puede entrar gratis, si tiene entre 4
+# y 18 años debe pagar 5€ y si es mayor de 18 años, 10€.
+
+edad = int(input('Edad: '))
+if edad < 4:
+    precio = 0
+elif edad >=4 and edad <= 18:
+    precio = 5
+else:
+    precio = 10
+print('Precio entrada: ', precio, '€')
+
+# 10. La pizzería Bella Napoli ofrece pizzas vegetarianas y no vegetarianas a sus clientes.
+# Los ingredientes para cada tipo de pizza son:
+#Ingredientes vegetarianos: Pimiento y tofu.
+#Ingredientes no vegetarianos: Peperoni, Jamón y Salmón.
+# Escribir un programa que pregunte si quieres una pizza vegetariana o no,
+# y muestre un menú con los ingredientes disponibles para que elija.
+# Solo se puede eligir un ingrediente además de la mozzarella y el tomate que están en todas la pizzas.
+# Al final se debe mostrar por pantalla si la pizza elegida es vegetariana o no y todos los ingredientes que lleva.
+
+# Presentación del menú con los tipos de pizza
+print("Bienvenido a la pizzeria Bella Napoli.\nTipos de pizza:\n\t1- Vegetariana\n\t2- No vegetariana\n")
+tipo = input("Introduce el número correspondiente al tipo de pizza que quieres: ")
+# Decisión sobre el tipo de pizza
+if tipo == "1":
+    print("Elige el ingrediente:\n\t1- Pimiento\n\t2- Tofu\n")
+    ingrediente = input("Introduce el ingrediente que deseas: ")
+    print("Has elegido una pizza vegetariana con mozzarella, tomate y ", end="")
+    if ingrediente == "1":
+        print("pimiento")
+    else: 
+        print("tofu")
+else:
+    print("Elige el ingrediente:\n\t1- Peperoni\n\t2- Jamón\n\t3- Salmón\n")
+    ingrediente = input("Introduce el ingrediente que deseas: ")
+    print("Has elegido una pizza no vegetarina con mozarrella, tomate y ", end="")
+    if ingrediente == "1":
+        print("peperoni")
+    elif ingrediente == "2":
+        print("jamón")
+    else:
+        print("salmón")
