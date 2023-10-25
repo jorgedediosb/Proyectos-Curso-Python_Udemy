@@ -1,5 +1,5 @@
 # Ejercicios página https://aprendeconalf.es/docencia/python/ejercicios/
-'''
+
 # 01. Escribir un programa que pida una palabra y la muestre por pantalla 10 veces.
 
 palabra = input('Escribe una palabra y la repito x10: ')
@@ -94,7 +94,7 @@ for i in frase:
     if i == letra:
         contador_letra += 1
 print("La letra '%s' se repite '%i' veces en la frase '%s'." %(letra, contador_letra, frase))
-'''
+
 # 12. Escribir un programa que muestre el eco de todo lo que el usuario introduzca
 # hasta que el usuario escriba “salir” que terminará.
 
