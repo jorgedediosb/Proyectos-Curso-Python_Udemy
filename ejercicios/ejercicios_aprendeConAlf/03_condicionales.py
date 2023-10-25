@@ -97,3 +97,23 @@ else:
 # Los puntos pueden ser 0.0, 0.4, 0.6 o más, pero no valores intermedios entre las cifras mencionadas.
 # La cantidad de dinero conseguida en cada nivel es de 2.400€ por la puntuación del nivel.
 # Tabla puntuación: Nivel Puntuación: Inaceptable	- 0.0 / Aceptable - 0.4 / Meritorio - 0.6 o más
+# Escribir un programa que lea la puntuación del usuario e indique su nivel de rendimiento, así como la cantidad de dinero que recibirá el usuario.
+
+bonificacion = 2400
+inaceptable = 0.0
+aceptable = 0.4
+meritorio = 0.6
+puntos = float(input('¿Cuántos puntos tienes?: '))
+if puntos == inaceptable:
+    nivel = 'Inaceptable'
+elif puntos == aceptable:
+    nivel = 'Aceptable'
+elif puntos >= 0.6:
+    nivel = 'Meritorio'
+else:
+    nivel = ''
+if nivel == '':
+    print('Tu nivel no es válido.')
+else:
+    print('Tu nivel de rendimiento es %s' % nivel)
+    print('Tu salario es %.2f' % (bonificacion * puntos))
