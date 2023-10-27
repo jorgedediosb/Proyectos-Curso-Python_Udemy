@@ -140,7 +140,7 @@ producto_escalar = 0
 for i in range(len(a)):
     producto_escalar += a[i]*b[i]
 print("El producto de los vectores" + str(a) + " y " + str(b) + " es " + str(producto_escalar))
-'''
+
 # 12. Escribir un programa que almacene las matrices A=(123/456) y B =(-10/01/11) en una lista y muestre su producto.
 # Nota: Para representar matrices mediante listas usar listas anidadas, representando cada vector fila en una lista.
 
@@ -163,7 +163,7 @@ for i in range(len(result)):
 
 # 13. Escribir un programa que pregunte por una muestra de números, separados por comas,
 # los guarde en una lista y muestre su media y desviación típica (√(Σ(xi - μ)² / N)).
-
+'''
 numeros = input("Introduce una muestra de números separados por comas: ")
 numeros = numeros.split(',')
 n = len(numeros)
