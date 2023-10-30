@@ -1,5 +1,5 @@
 # Ejercicios página https://aprendeconalf.es/docencia/python/ejercicios/
-'''
+
 # 01. Escribir un programa que almacene las asignaturas (por ejemplo Matemáticas, Física, Química, Historia y Lengua)
 # en una lista y la muestre por pantalla.
 
@@ -163,7 +163,7 @@ for i in range(len(result)):
 
 # 13. Escribir un programa que pregunte por una muestra de números, separados por comas,
 # los guarde en una lista y muestre su media y desviación típica (√(Σ(xi - μ)² / N)).
-'''
+
 numeros = input("Introduce una muestra de números separados por comas: ")
 numeros = numeros.split(',')
 n = len(numeros)
