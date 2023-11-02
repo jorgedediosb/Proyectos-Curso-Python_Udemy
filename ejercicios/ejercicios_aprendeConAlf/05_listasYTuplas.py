@@ -1,6 +1,6 @@
 # Ejercicios página https://aprendeconalf.es/docencia/python/ejercicios/
 
-# 01. Escribir un programa que almacene las asignaturas (por ejemplo Matemáticas, Física, Química, Historia y Lengua)
+# 01. Escribir un programa que almacene asignaturas (Matemáticas, Física, Química, Historia y Lengua
 # en una lista y la muestre por pantalla.
 
 lista_asignaturas = ['Matemáticas', 'Física', 'Química', 'Historia', 'Lengua']
@@ -15,15 +15,16 @@ for asisgnatura in lista_asignaturas:
 
 # 03. Escribir un programa que pregunte al usuario la nota que ha sacado en cada asignatura,
 # y después las muestre: En <asignatura> has sacado <nota>
-# donde <asignatura> es cada una des las asignaturas de la lista y <nota>.
+# donde <asignatura> es cada una de las asignaturas de la lista y <nota>.
 
 lista_asignaturas = ['Matemáticas', 'Física', 'Química', 'Historia', 'Lengua']
 lista_notas = []
 for asignatura in lista_asignaturas:
     notas = input(f'Escribe tu nota en {asignatura}: ')
     lista_notas.append(notas)
-for posicion in range(len(lista_asignaturas)):
-    print(f'\nEn {lista_asignaturas[posicion]} tienes un: {lista_notas[posicion]}')
+# Uso de enumerate en vez de range(len(lista_asignaturas)):
+for i, asignatura in enumerate(lista_asignaturas):
+    print(f'\nEn {lista_asignaturas[i]} tienes un: {lista_notas[i]}')
 
 # 04. Escribir un programa que pregunte los 6 nºs ganadores de la lotería,
 # los almacene en una lista y los muestre por pantalla ordenados de menor a mayor.
@@ -37,15 +38,15 @@ print("Los números ganadores son: " + str(numeros_ganadores))
 # 05. Escribir un programa que almacene en una lista los números del 1 al 10
 # y los muestre por pantalla en orden inverso separados por comas.
 
-list = [1,2,3,4,5,6,7,8,9,10]
+list1 = [1,2,3,4,5,6,7,8,9,10]
 # como una lista:
-print(list[::-1])
+print(list1[::-1])
 # sin ser lista:
-for i in reversed(list):
+for i in reversed(list1):
     print(i)
 # sin ser lista y en una línea:
 for i in range(1, 11):
-    print(list[-i], end=',')
+    print(list1[-i], end=',')
 
 # 06. Escribir un programa que almacene las asignaturas de un curso en una lista,
 # pregunte al usuario la nota que ha sacado en cada asignatura
@@ -78,8 +79,10 @@ print("Tienes que repetir " + str(subjects))
 # elimine de la lista las letras que ocupen posiciones múltiplos de 3,
 # y muestre por pantalla la lista resultante.
 
-abecedario = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z']
-#recorremos desde el último elemento hasta el 2º (sin incluir el primer elemento) 
+abecedario = ['a','b','c','d','e','f','g','h','i','j',
+              'k','l','m','n','ñ','o','p','q','r','s',
+              't','u','v','w','x','y','z']
+#recorremos desde el último elemento hasta el 2º (sin incluir el primer elemento)
 for i in range(len(abecedario),1,-1):
     if i % 3 == 0:
         #El índice se resta 1 porque el índice de la lista comienzan en 0.
@@ -109,26 +112,26 @@ print(f"Letra U: {palabra.count('u')}")
 #opción 2:
 vocales = ['a','e','i','o','u']
 for vocal in vocales:
-    repeticiones = 0
+    repeticion = 0
     for letra in palabra:
         if letra == vocal:
-            repeticiones += 1
-    print(f'la vocal {vocal} aparece {str(repeticiones)} veces')
+            repeticion += 1
+    print(f'la vocal {vocal} aparece {str(repeticion)} veces')
 
 # 10. Escribir un programa que almacene en una lista los siguientes precios:
 # 50, 75, 46, 22, 80, 65, 8, y muestre por pantalla el menor y el mayor de los precios.
 # opcion 1:
 lista = [50, 75, 46, 22, 80, 65, 8]
-min = min(lista)
-max = max(lista)
+min_lista = min(lista)
+max_lista = max(lista)
 print(f'El precio mínimo es {min} y el máximo es {max}')
 #opción 2:
-min = max = lista[0]
+min_lista = max_lista = lista[0]
 for precio in lista:
-    if precio < min:
-        min = precio
-    elif precio > max:
-        max = precio
+    if precio < min_lista:
+        min_lista = precio
+    elif precio > max_lista:
+        max_lista = precio
 print(f'El precio mínimo es {min} y el máximo es {max}')
 
 # 11. Escribir un programa que almacene los vectores (1,2,3) y (-1,0,2) en dos listas
@@ -141,8 +144,10 @@ for i in range(len(a)):
     producto_escalar += a[i]*b[i]
 print("El producto de los vectores" + str(a) + " y " + str(b) + " es " + str(producto_escalar))
 
-# 12. Escribir un programa que almacene las matrices A=(123/456) y B =(-10/01/11) en una lista y muestre su producto.
-# Nota: Para representar matrices mediante listas usar listas anidadas, representando cada vector fila en una lista.
+# 12. Escribir un programa que almacene las matrices A=(123/456) y B =(-10/01/11) en una lista
+# y muestre su producto.
+# Nota: Para representar matrices mediante listas usar listas anidadas,
+# representando cada vector fila en una lista.
 
 a = ((1, 2, 3),
      (4, 5, 6))
@@ -151,6 +156,7 @@ b = ((-1, 0),
      (1,1))
 result = [[0,0],
           [0,0]]
+# Sería más correcto usar enumerate():
 for i in range(len(a)):
     for j in range(len(b[0])):
         for k in range(len(b)):
