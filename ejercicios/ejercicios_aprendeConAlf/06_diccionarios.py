@@ -226,18 +226,18 @@ datos_clientes = "nif;nombre;email;teléfono;descuento\n01234567L;Luis González
 lista_clientes = datos_clientes.split('\n')
 # Inicializamos el diccionario que va a contener el directorio de clientes a vacío.
 directorio = {}
-# Dividimos la cadena del primer elemento de la lista de clientes (que contienen los 
+# Dividimos la cadena del primer elemento de la lista de clientes (que contienen los
 # nombres de los campos) por el caracter ; y creamos una lista con los campos.
-lista_campos = lista_clientes[0].split(';') 
+lista_campos = lista_clientes[0].split(';')
 # Bucle iterativo para recorrer los elementos de la lista lista_clientes.
-# la variable cliente recorre desde el segundo elemento hasta el último elemento de la lista 
+# la variable cliente recorre desde el segundo elemento hasta el último elemento de la lista
 # (el primer elemento contiene los nombres de campo así que no corresponde a un cliente)
 for i in lista_clientes[1:]:
     # Inicializamos el diccionario que va a contener los datos del cliente actual a vacío.
     cliente = {}
     # Dividimos la cadena i por el caracter ; y creamos una lista con las subcadenas con la
     # información del cliente
-    lista_info = i.split(';') 
+    lista_info = i.split(';')
     # Bucle iterativo para recorrer los campos y añadir los pares al diccionario del cliente.
     # j toma valores de 1 al número de campos menos 1. El primer elemento (posición 0) corresponde 
     # al nif y no se añade al diccionario porque se utilizará después como clave en el diccionario
@@ -252,5 +252,3 @@ for i in lista_clientes[1:]:
     directorio[lista_info[0]] = cliente
 # Mostramos el diccionario por pantalla
 print(directorio)
-
-
