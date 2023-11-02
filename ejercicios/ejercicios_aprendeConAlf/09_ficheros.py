@@ -172,7 +172,8 @@ def pib_pais(url, pais = "ES"):
         for i in datos:
             i[0] = i[0][-2:] # Obtener el código del país de los dos últimos caracteres del primer elemento de la lista
         datos[0][0] = 'años'
-        # Creamos un diccionario con claves los códiogos de los países y valores la lista de sus pibs (a excepción del primer par que contiene los años).
+        # Creamos un diccionario con claves los códiogos de los países y valores la lista de sus pibs
+        # (a excepción del primer par que contiene los años).
         datos = {i[0]:i[1:] for i in datos}
         # Creamos y devolvemos el diccionario con los pibs del país
         return {datos['años'][i]:datos[pais][i] for i in range(len(datos['años']))}
@@ -282,7 +283,8 @@ def create_directory(file):
 
 def menu():
     '''
-    Función que presenta un menú con las operaciones disponibles sobre un listín telefónico y devuelve la opción seleccionada por el usuario.
+    Función que presenta un menú con las operaciones disponibles sobre un listín telefónico
+    y devuelve la opción seleccionada por el usuario.
     Devuelve:
         La opción seleccionada por el usuario.
     '''
@@ -343,7 +345,8 @@ def limpiar(cifra):
     Parámetros:
         - cifra: Es una cadena con una cifra
     Devuelve:
-        Un real con la cifra de la cadena después de eliminar el separador de miles y cambiar el separador de decimales por punto.
+        Un real con la cifra de la cadena después de eliminar el separador de miles
+        y cambiar el separador de decimales por punto.
     """
     cifra = cifra.replace('.', '')
     cifra = cifra.replace(',','.')
@@ -351,7 +354,9 @@ def limpiar(cifra):
 
 def preprocesado(ruta):
     """
-    Función que preprocesa los datos contenidos en un fichero con formato csv y devuelve un diccionario con los nombres de las columnas como claves y las listas de valores asociados a ellas.
+    Función que preprocesa los datos contenidos en un fichero con formato csv
+    y devuelve un diccionario con los nombres de las columnas como claves
+    y las listas de valores asociados a ellas.
     Parámetros:
         - ruta: Es una cadena con la ruta del fichero.
     Devuelve:
@@ -388,9 +393,11 @@ def preprocesado(ruta):
 
 def resumen_cotizacion(cotizaciones, ruta):
     """
-    Función que recibe un diccionario con los valores de cotización y crear un fichero con un resumen con el mínimo, el máximo y la media.
+    Función que recibe un diccionario con los valores de cotización
+    y crear un fichero con un resumen con el mínimo, el máximo y la media.
     Parámetros:
-        - cotizaciones: Es un diccionario con pares cuyas claves son los nombres de la variables medidas y cuyos valores son las listas de valores de cada variable.
+        - cotizaciones: Es un diccionario con pares cuyas claves son los nombres de la variables medidas
+        y cuyos valores son las listas de valores de cada variable.
         - ruta: Es una cadena con la ruta del fichero.
     """
     # Eliminamos el primer par del diccionario que contiene los nombres de las empresas.
@@ -445,7 +452,8 @@ resumen_cotizacion(cotizaciones, 'resumen-cotizacion.csv')
 # y la nota final mayor o igual que 5.
 
 def nota(cifra):
-    '''Función que elimina cambia las comas de separación de decimales por puntos de una cifra y la convierte en un real.
+    '''Función que cambia las comas de separación de decimales por puntos de una cifra
+    y la convierte en un real.
     Parámetros:
         - cifra: Es una cadena con una cifra.
     Devuelve:
@@ -455,12 +463,15 @@ def nota(cifra):
     return float(cifra) 
 
 def calificaciones(ruta):
-    '''Función que preprocesa los datos contenidos en un fichero con formato csv y devuelve una lista de diccionarios donde las claves de los diccionarios son los datos de la primera fila y los valores los datos de cada línea del fichero.
+    '''Función que preprocesa los datos contenidos en un fichero con formato csv
+    y devuelve una lista de diccionarios donde las claves de los diccionarios son
+    los datos de la primera fila y los valores los datos de cada línea del fichero.
     
     Parámetros:
         - ruta: Es una cadena con la ruta del fichero.
     Devuelve:
-        Una lista de diccionarios donde cada diccionario contiene los datos de una linea del fichero (a excepción de la primera línea), usando como claves los datos de la primera línea.
+        Una lista de diccionarios donde cada diccionario contiene los datos de una linea
+        del fichero (a excepción de la 1ª línea), usando como claves los datos de la primera línea.
     '''
     try:
         # Abrimos el fichero en modo lectura
@@ -472,11 +483,13 @@ def calificaciones(ruta):
     lineas = f.readlines()
     # Cerramos el fichero
     f.close()
-    # Leemos las claves del primer elemento de la lista, eliminamos el cambio de línea que aparece al final y dividimos la cadena por el punto y coma.
+    # Leemos las claves del primer elemento de la lista, eliminamos el cambio de línea
+    # que aparece al final y dividimos la cadena por el punto y coma.
     claves = lineas[0][:-1].split(";")
     # Creamos la lista de calificaciones
     calificaciones = []
-    # Recorremos las líneas del fichero y para cada línea creamos un diccionario que añadimos a la lista de calificaciones.
+    # Recorremos las líneas del fichero y para cada línea creamos un diccionario que añadimos
+    # a la lista de calificaciones.
     for i in lineas[1:]:
         # Eliminamos el cambio de línea del final y dividimos la cadena por el punto y coma.
         valores = i[:-1].split(";")
@@ -490,12 +503,15 @@ def calificaciones(ruta):
     return calificaciones
 
 def añadir_nota_final(calificaciones):
-    '''Función que recibe una lista de diccionarios con las calificaciones de cada alumno en un curso, calcula la nota final del curso de cada alumno y la añade al diccionario del alumno.
+    '''Función que recibe una lista de diccionarios con las calificaciones de cada alumno en un curso,
+    calcula la nota final del curso de cada alumno y la añade al diccionario del alumno.
 
     Parámetros:
-        - calificaciones: Es una lista de diccionarios donde cada diccionario contiene los datos de un alumno (nombre, asistencia y notas de exámenes del curso).
+        - calificaciones: Es una lista de diccionarios donde cada diccionario contiene los datos
+        de un alumno (nombre, asistencia y notas de exámenes del curso).
     Devuelve:
-        La lista de las calificaciones de los alumnos tras añadir a cada alumno de la lista su nota final del curso.
+        La lista de las calificaciones de los alumnos tras añadir a cada alumno de la lista
+        su nota final del curso.
     '''
 
     def nota_final(alumno):
@@ -506,19 +522,24 @@ def añadir_nota_final(calificaciones):
         Devuelve:
             El diccionario con los datos del alumno tras añadirle un nuevo par con la nota final del curso.
         '''
-        if alumno['Ordinario1']: #Si el alumno se ha presentado al examen de repesca del primer parcial tomamos esa nota como la nota del primer parcial
+        #Si el alumno se ha presentado al examen de repesca del primer parcial
+        # tomamos esa nota como la nota del primer parcial
+        if alumno['Ordinario1']:
             parcial1 = nota(alumno['Ordinario1'])
         elif alumno['Parcial1']:
             parcial1 = nota(alumno['Parcial1'])
         else: # No se ha presentado al primer parcial ni a la repesca en el ordinario
             parcial1 = 0
-        if alumno['Ordinario2']: #Si el alumno se ha presentado al examen de repesca del segundo parcial tomamos esa nota como la nota del segundo parcial
+        #Si el alumno se ha presentado al examen de repesca del segundo parcial tomamos esa nota como la nota del segundo parcial
+        if alumno['Ordinario2']:
             parcial2 = nota(alumno['Ordinario2'])
         elif alumno['Parcial2']:
             parcial2 = nota(alumno['Parcial2'])
-        else: # No se ha presentado al segundo parcial ni a la repesca en el ordinario
-            parcial2 = 0 
-        if alumno['OrdinarioPracticas']: #Si el alumno se ha presentado al examen de repesca de prácticas tomamos esa nota como la nota de prácticas
+        # No se ha presentado al segundo parcial ni a la repesca en el ordinario
+        else:
+            parcial2 = 0
+        #Si el alumno se ha presentado al examen de repesca de prácticas tomamos esa nota como la nota de prácticas 
+        if alumno['OrdinarioPracticas']:
             practicas = nota(alumno['OrdinarioPracticas'])
         elif alumno['Practicas']:
             practicas = nota(alumno['Practicas'])
@@ -534,10 +555,12 @@ def añadir_nota_final(calificaciones):
     return list(map(nota_final, calificaciones))
 
 def aprobados_suspensos(calificaciones):
-    '''Función que recibe una lista de diccionarios con las calificaciones de cada alumno en un curso, y devuelve la lista de aprobados y suspensos en el curso.
+    '''Función que recibe una lista de diccionarios con las calificaciones de cada alumno en un curso,
+    y devuelve la lista de aprobados y suspensos en el curso.
 
     Parámetros:
-        - calificaciones: Es una lista de diccionarios donde cada diccionario contiene los datos de un alumno (nombre, asistencia y notas de exámenes del curso).
+        - calificaciones: Es una lista de diccionarios donde cada diccionario contiene los datos de un alumno
+        (nombre, asistencia y notas de exámenes del curso).
     Devuelve:
         - aprobados: Es una lista con los nombres de los alumnos aprobados.
         - suspensos: Es una lista con los nombres de los alumnos suspensos.
@@ -547,7 +570,8 @@ def aprobados_suspensos(calificaciones):
     suspensos = []
     # Recorremos los alumnos del curso
     for alumno in calificaciones:
-        # Si se cumplen las condiciones para aprobar añadimos el nombre del alumno a la lista de aprobados y si no a la de suspensos.
+        # Si se cumplen las condiciones para aprobar añadimos el nombre del alumno a la lista de aprobados
+        # y si no a la de suspensos.
         if all([int(alumno['Asistencia'][:-1]) >= 75, alumno['Final1'] >= 4, alumno['Final2'] >=4, alumno['FinalPracticas'] >=4, alumno['NotaFinal'] >= 5]):
             aprobados.append(alumno['Apellidos'] + ', ' + alumno['Nombre'])
         else:
