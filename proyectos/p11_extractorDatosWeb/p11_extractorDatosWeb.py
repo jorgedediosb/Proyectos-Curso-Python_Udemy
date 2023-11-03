@@ -7,7 +7,6 @@ resultado = requests.get('https://escueladirecta-blog.blogspot.com')
 elementos = bs4.BeautifulSoup(resultado.text, 'lxml')
 print(elementos.select('title'))
 
-'''
 # Url de la pagina donde extraemos info
 url_base = 'https://escueladirecta-blog.blogspot.com'
 
@@ -40,4 +39,3 @@ for pagina in range(1, 51):
 # ver libros 4 u 5 estrellas en consola
 for t in titulos_rating_alto:
     print(t)
-'''
