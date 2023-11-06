@@ -13,7 +13,8 @@ ventas = {}
 # Bucle iterativo para preguntar las ventas de cada año y guardarlas en el diccionario
 # i toma como valores los años desde el año de inicio hasta el año final
 for i in range(inicio, fin+1):
-    # Preguntamos por las ventas del año i y las guardamos en el diccionario con la clave el año y el valor las ventas
+    # Preguntamos por las ventas del año i y las guardamos en el diccionario con la clave el año
+    # y el valor las ventas
     ventas[i] = float(input('Introduce las ventas del año ' + str(i) +': '))
 # Definimos la figura y los ejes del gráfico con Matplotlib
 fig, ax = plt.subplots()
@@ -86,9 +87,9 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 
 def diagrama_sectores_ventas(ventas, titulo):
-    '''Función que construye un diagrama de sectores con las ventas de un trimestre y lo guarda con un nombre dado. 
-    
-    Parámetros:
+    '''Función que construye un diagrama de sectores con las ventas de un trimestre
+    y lo guarda con un nombre dado.
+        Parámetros:
         - ventas: Es una serie de Pandas con las ventas del trimestre, siendo el índice los meses.
         - titulo: Es una cadena con el título.
     '''
@@ -177,7 +178,9 @@ def diagrama_lineas_ingresos_gastos(datos):
     # Devolvemos el objeto con los ejes y el gráfico que contienten
     return ax
 
-datos = {'Mes':['Ene', 'Feb', 'Mar', 'Abr'], 'Ingresos':[4500, 5200, 4800, 5300], 'Gastos':[2300, 2450, 2000, 2200]}
+datos = {'Mes':['Ene', 'Feb', 'Mar', 'Abr'],
+         'Ingresos':[4500, 5200, 4800, 5300],
+         'Gastos':[2300, 2450, 2000, 2200]}
 df_datos = pd.DataFrame(datos).set_index('Mes')
 diagrama_lineas_ingresos_gastos(df_datos)
 plt.show()
@@ -241,7 +244,8 @@ df_titanic = pd.read_csv('titanic.csv')
 # Creamos la figura y los ejes
 fig, ax = plt.subplots()
 # Diagrama de sectores de falleccidos y supervivientes
-df_titanic.Survived.value_counts().plot(kind = "pie", labels = ["Muertos", "Supervivientes"], title = "Distribución de supervivientes")
+df_titanic.Survived.value_counts().plot(kind = "pie", labels = ["Muertos", "Supervivientes"],
+                                        title = "Distribución de supervivientes")
 plt.show()
 
 # Histograma de edades
@@ -261,6 +265,6 @@ df_titanic.groupby(["Pclass", "Survived"]).size().unstack().plot(kind = "bar", t
 plt.show()
 
 # Diagrama de barras con el número de personas fallecidas y supervivientes acumuladas de cada clase
-df_titanic.groupby(["Pclass", "Survived"]).size().unstack().plot(kind = "bar", stacked = True, title = "Número de personas fallecidas y supervivientes por clase")
+df_titanic.groupby(["Pclass", "Survived"]).size().unstack().plot(kind = "bar",stacked = True, title = "Número de personas fallecidas y supervivientes por clase")
 plt.show()
 

@@ -10,18 +10,19 @@ inicio = int(input('Introduce el año inicial: '))
 fin = int(input('Introduce el año final: '))
 ventas = {}
 for i in range(inicio, fin+1):
-    ventas[i] = float(input('Introduce las ventas del año ' + str(i) +': '))
+    ventas[i] = float(input('Introduce las ventas del año ' + str(i) + ': '))
 # creamos un objeto de clase 'pd.Series' a partir del diccionario 'ventas' para acceder a ellos.
 ventas = pd.Series(ventas)
-print('Ventas\n', ventas)
-print('Ventas con descuento\n', ventas*0.9)
+print('Ventas SIN descuento:\n', ventas)
+print('-----------------------')
+print('Ventas CON descuento:\n', ventas*0.9)
 
 
-# 02. Escribir una función que reciba un diccionario con las notas de los alumno de un curso
+# 02. Escribir una función que reciba un diccionario con las notas de los alumnos de un curso
 # y devuelva una serie con la nota mínima, la máxima, media y la desviación típica.
 
 # import pandas as pd
-def estadistica_notas(notas_dic):
+def estadistica_notas(notas):
     """
     Calcula estadísticas básicas de un diccionario de notas.
     Parámetros:
@@ -29,35 +30,49 @@ def estadistica_notas(notas_dic):
     Devuelve:
     pd.Series: objeto Serie de Pandas con estadísticas.
     """
-    notas_series = pd.Series(notas_dic)
-    # opción 1:
-    estadisticos = pd.Series([notas_series.min(), notas_series.max(),
-                              notas_series.mean(), notas_series.std()],
-                             index=['Min', 'Max', 'Media', 'Desviación típica'])
-    return estadisticos
-    # Opción 2 usando .describe() que ofrece los datos pedis y alguno más:
-    # def estadistica_notas(notas):
-    # notas = pd.Series(notas)
-    # return notas.describe()
+    notas = pd.Series(notas)
+    # Opción 1:
+    estadisticas = pd.Series([notas.min(),
+                              notas.max(),
+                              notas.mean(),
+                              notas.std()],
+                              index=['Min', 'Max', 'Media', 'Desviación típica'])
+    return estadisticas
+    '''
+    Opción 2 usando .describe() que ofrece los datos pedidos y alguno más:
+    def estadistica_notas(notas):
+        notas = pd.Series(notas)
+        return notas.describe()
+    
+    Opción 3 redondeando los resultados a 2 decimales e imprimiendo el nombre de alumno con su nota(min y max):
+    def estadistica_notas(notas):
+        notas = pd.Series(notas)
+        # Calcular las estadísticas
+        min_nota = notas.idxmin()
+        max_nota = notas.idxmax()
+        mean = round(notas.mean(), 2)
+        std = round(notas.std(), 2)
 
+        # Crear una cadena de texto formateada con las estadísticas
+        estadisticas = f"min: {notas[min_nota]} - {min_nota}\nmax: {notas[max_nota]} - {max_nota}\nmean: {mean}\nstd: {std}"
+        return estadisticas
+    '''
 notas = {'Juan':9, 'María':6.5, 'Pedro':4, 'Carmen': 8.5, 'Luis': 5}
 print(estadistica_notas(notas))
-notas = {'Juan':9, 'María':6.5, 'Pedro':4, 'Carmen': 8.5, 'Luis': 5}
-print(estadistica_notas(notas))
+
 
 # 03. Escribir una función que reciba un diccionario con las notas de los alumnos de un curso
-# y devuelva una serie con las notas de los alumnos aprobados ordenadas de mayor a menor.
+# y devuelva una serie con las notas de los alumnos APROBADOS (notas >= 5)
+# y ordenadas de mayor a menor.
 
-# import pandas as pd
-def aprobados(notas_dic):
-    """
-    Recibe notas de un diccionario y devuelve los aprobados de mayor a menor
-    """
-    notas_series = pd.Series(notas_dic)
-    return notas_series[notas_series >= 5].sort_values(ascending=False)
+import pandas as pd
 
-notas_alumnos = {'Juan':9, 'María':6.5, 'Pedro':4, 'Carmen': 8.5, 'Luis': 5}
-print(aprobados(notas_alumnos))
+def aprobados(notas):
+    notas = pd.Series(notas)
+    return notas[notas >= 5].sort_values(ascending=False)
+
+notas = {'Juan':7.5, 'María':3.5, 'Pedro':4, 'Carmen': 5, 'Luis': 9.5}
+print(aprobados(notas))
 
 
 # 04. Escribir programa que genere y muestre por pantalla un DataFrame
@@ -69,15 +84,18 @@ print(aprobados(notas_alumnos))
 # Abril	  33900	  20700
 
 # import pandas as pd
-# Opción 1:
-datos1 = {'Mes':['Enero', 'Febrero', 'Marzo', 'Abril'],'Ventas':[30500, 35600, 28300, 33900],
-         'Gastos':[22000, 23400, 18100, 20700]}
+# Opción 1 con un dic:
+datos1 = {'Mes':['Enero', 'Febrero', 'Marzo', 'Abril'],
+          'Ventas':[30500, 35600, 28300, 33900],
+          'Gastos':[22000, 23400, 18100, 20700]}
 contabilidad = pd.DataFrame(datos1)
 print(contabilidad)
 
-# Opción 2:
-datos2 = [['Enero', 30500, 22000], ['Febrero', 35600, 23400],
-          ['Marzo', 28300, 18100], ['Abril', 33900,20700]]
+# Opción 2 con una lista:
+datos2 = [['Enero', 30500, 22000],
+          ['Febrero', 35600, 23400],
+          ['Marzo', 28300, 18100],
+          ['Abril', 33900,20700]]
 contabilidad = pd.DataFrame(datos2, columns=['Mes', 'Ventas', 'Gastos'])
 print(contabilidad)
 
@@ -85,22 +103,25 @@ print(contabilidad)
 # 05. Escribir una función que reciba un DataFrame con el formato del ejercicio anterior,
 # una lista de meses, y devuelva el balance (ventas - gastos) total en los meses indicados.
 
+datos = {'Mes':['Enero', 'Febrero', 'Marzo', 'Abril'],
+         'Ventas':[30500, 35600, 28300, 33900],
+         'Gastos':[22000, 23400, 18100, 20700]}
+
+contabilidad = pd.DataFrame(datos)
+
 # Opción 1 usando los datos1 ej anterior:
-contabilidad = pd.DataFrame(datos1)
-def balance(contabilidad, meses):
+def balance1(contabilidad, meses):
     contabilidad['Balance'] = contabilidad.Ventas - contabilidad.Gastos
     return contabilidad[contabilidad.Mes.isin(meses)].Balance.sum()
 
-print(balance(contabilidad, ['Enero','Marzo']))
+print(balance1(contabilidad, ['Enero','Marzo']))
 
 # Opción 2 usando los datos2 ej anterior:
-contabilidad = pd.DataFrame(datos2)
-
-def balance(contabilidad, meses):
+def balance2(contabilidad, meses):
     contabilidad['Balance'] = contabilidad.Ventas - contabilidad.Gastos
     return contabilidad.set_index('Mes').loc[meses,'Balance'].sum()
 
-print(balance(contabilidad, ['Enero','Marzo']))
+print(balance2(contabilidad, ['Enero','Abril']))
 
 # 06. El fichero cotizacion.csv contiene las cotizaciones de las empresas del IBEX35 con las siguientes columnas:
 # nombre (nombre de la empresa), Final (precio de la acción al cierre de bolsa),
