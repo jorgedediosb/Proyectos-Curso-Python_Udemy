@@ -1,24 +1,6 @@
 import pandas as pd
 
-datos = {'Mes':['Enero', 'Febrero', 'Marzo', 'Abril'],
-         'Ventas':[30500, 35600, 28300, 33900],
-         'Gastos':[22000, 23400, 18100, 20700]}
-
-contabilidad = pd.DataFrame(datos)
-
-def balance1(contabilidad, meses):
-    contabilidad['Balance'] = contabilidad.Ventas - contabilidad.Gastos
-    return contabilidad[contabilidad.Mes.isin(meses)].Balance.sum()
-
-print(contabilidad)
-print('Opción 1:')
-print(f"El balance es: {balance1(contabilidad, ['Enero','Marzo'])}")
-
-print('---------')
-
-def balance2(contabilidad, meses):
-    contabilidad['Balance'] = contabilidad.Ventas - contabilidad.Gastos
-    return contabilidad.set_index('Mes').loc[meses,'Balance'].sum()
-
-print('Opción 2:')
-print(f"El balance es: {balance2(contabilidad, ['Enero','Abril'])}")
+titanic = pd.read_csv('dataSets/titanic.csv', index_col=0)
+print('-------------')
+print(titanic['Survived'].value_counts())
+print(titanic['Pclass'].value_counts())

@@ -112,6 +112,10 @@ contabilidad = pd.DataFrame(datos)
 # Opción 1 usando los datos1 ej anterior:
 def balance1(contabilidad, meses):
     contabilidad['Balance'] = contabilidad.Ventas - contabilidad.Gastos
+    # Se filtra el DataFrame 'contabilidad'
+    # para incluir solo las filas cuyo valor en la columna 'Mes' esté en la lista 'meses'.
+    # Luego, se selecciona la columna 'Balance' y se suma para calcular el balance total de esos meses.
+    # El resultado se devuelve como el valor de retorno de la función balance1.
     return contabilidad[contabilidad.Mes.isin(meses)].Balance.sum()
 
 print(balance1(contabilidad, ['Enero','Marzo']))
@@ -119,11 +123,15 @@ print(balance1(contabilidad, ['Enero','Marzo']))
 # Opción 2 usando los datos2 ej anterior:
 def balance2(contabilidad, meses):
     contabilidad['Balance'] = contabilidad.Ventas - contabilidad.Gastos
+    # Se establece el índice del DataFrame en la columna 'Mes' utilizando set_index.
+    # Luego, se utiliza loc para seleccionar las filas correspondientes a los meses en la lista 'meses',
+    # la columna 'Balance' y se suma para calcular el balance total de esos meses.
     return contabilidad.set_index('Mes').loc[meses,'Balance'].sum()
 
 print(balance2(contabilidad, ['Enero','Abril']))
 
-# 06. El fichero cotizacion.csv contiene las cotizaciones de las empresas del IBEX35 con las siguientes columnas:
+# 06. El fichero cotizacion.csv (https://github.com/asalber/aprendeconalf/blob/master/content/es/docencia/python/ejercicios/soluciones/pandas/cotizacion.csv)
+# contiene las cotizaciones de las empresas del IBEX35 con las siguientes columnas:
 # nombre (nombre de la empresa), Final (precio de la acción al cierre de bolsa),
 # Máximo (precio máximo de la acción durante la jornada), Mínimo (precio mínimo de la acción durante la jornada),
 # volumen (Volumen al cierre de bolsa), Efectivo (capitalización al cierre en miles de euros).
@@ -131,11 +139,11 @@ print(balance2(contabilidad, ['Enero','Abril']))
 # y devuelva otro DataFrame con el mínimo, el máximo y la media de dada columna.
 
 # import pandas as pd
-def resumen_cotizaciones(fichero):
-    df = pd.read_csv(fichero, sep=';', decimal=',', thousands='.', index_col=0)
+def resumen_cotizaciones(archivo):
+    df = pd.read_csv(archivo, sep=';', decimal=',', thousands='.', index_col=0)
     return pd.DataFrame([df.min(), df.max(), df.mean()], index=['Mínimo', 'Máximo', 'Media'])
 
-resumen_cotizaciones('cotizacion.csv')
+print(resumen_cotizaciones('dataSets/cotizacion.csv'))
 
 # 07. El fichero titanic.csv contiene información sobre los pasajeros del Titanic.
 # Escribir un programa con los siguientes requisitos:
@@ -155,7 +163,7 @@ los nombres de sus columnas y filas, los tipos de datos de las columnas, las 10 
 '''
 # import pandas as pd
 # Generar un DataFrame con los datos del fichero.
-titanic = pd.read_csv('https://raw.githubusercontent.com/asalber/asalber.github.io/master/python/ejercicios/soluciones/pandas/titanic.csv', index_col=0)
+titanic = pd.read_csv('dataSets/titanic.csv', index_col=0)
 print(titanic)
 
 # Mostrar por pantalla las dimensiones del DataFrame, el número de datos que contiene, los nombres de sus columnas
@@ -179,16 +187,17 @@ print(titanic[titanic["Pclass"]==1]['Name'].sort_values())
 
 # Mostrar por pantalla el porcentaje de personas que sobrevivieron y murieron
 print(titanic['Survived'].value_counts()/titanic['Survived'].count() * 100)
-
 # Alternativa
-print(titanic['Survived'].value_counts(normalize=True) * 100)
+# print(titanic['Survived'].value_counts(normalize=True) * 100)
 
 #Mostrar por pantalla el porcentaje de personas que sobrevivieron en cada clase
 print(titanic.groupby('Pclass')['Survived'].value_counts(normalize=True))
+# Alternativa con % y dos dígitos:
+# result = titanic.groupby('Pclass')['Survived'].value_counts(normalize=True).apply(lambda x: f'{x * 100:.2f} %')
+# print(result)
 
 # Eliminar del DataFrame los pasajeros con edad desconocida.
 titanic.dropna(subset=['Age'])
-
 # Alternativa 
 # titanic = titanic[titanic['Age'].notna()]
 
