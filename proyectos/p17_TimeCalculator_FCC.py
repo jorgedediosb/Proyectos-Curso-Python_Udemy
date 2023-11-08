@@ -1,4 +1,4 @@
-# Proyecto 'Arithmetic Formatter' perteneciente al curso 'Scientific Computing with Python' de FCC
+# Proyecto 'Time Calculator' perteneciente al curso 'Scientific Computing with Python' de FCC
 
 def add_time(start_time, duration, start_day=None):
     '''
