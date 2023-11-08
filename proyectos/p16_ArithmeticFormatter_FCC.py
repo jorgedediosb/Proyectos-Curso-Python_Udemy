@@ -1,3 +1,5 @@
+# Proyecto 'Arithmetic Formatter' perteneciente al curso 'Scientific Computing with Python' de FCC
+
 def arithmetic_arranger(problems, show_results=False):
     '''
     Función que recibe una lista de cadenas con problemas aritméticos
