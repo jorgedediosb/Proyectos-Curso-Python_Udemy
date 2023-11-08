@@ -1,8 +1,14 @@
 def arithmetic_arranger(problems, show_results=False):
+    '''
+    Función que recibe una lista de cadenas con problemas aritméticos
+    y devuelve las soluciones verticalmente uno al lado del otro.
+    Opcionalmente, toma un segundo argumento que si se establece en Verdadero,
+    muestra las respuestas.
+    '''
     if len(problems) > 5:
         return "Error: Too many problems"
 
-    arranged_problems = {"top": [], "bottom": [], "lines": [], "results": []}
+    arranged_problems = {"top":[], "bottom":[], "lines":[], "results":[]}
     for problem in problems:
         parts = problem.split()
         if len(parts) != 3:
@@ -19,9 +25,9 @@ def arithmetic_arranger(problems, show_results=False):
             return "Error: Operator must be '+' or '-'"
         
         max_len = max(len(num1), len(num2))
-        width = max_len + 2
+        width = max_len + 1
         
-        arranged_problems["top"].append(num1.rjust(width))
+        arranged_problems["top"].append(num1.rjust(width)) # Right-align num1 (don´t work)
         arranged_problems["bottom"].append(operator + num2.rjust(width - 1))  # Left-align the operator
         arranged_problems["lines"].append('-' * width)
         
