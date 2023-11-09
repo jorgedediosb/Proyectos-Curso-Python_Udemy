@@ -2,12 +2,8 @@
 
 class Category:
     '''
-    La clase 'Category' crea instancias de objetos basados en diferentes categorías de presupuesto,
-    como comida, ropa y entretenimiento.
-    Cuando se imprime el presupuesto, muestra:
-    - Una línea de título donde el nombre de la categoría está centrado en una línea de caracteres *.
-    - Una lista de los elementos del presupuesto. Cada línea muestra la descripción y el monto.
-    - Una línea que muestra el total de la categoría.
+    Implementación de una clase Category que representa una categoría de presupuesto
+
     '''
     def __init__(self, category):
         self.category = category
@@ -46,6 +42,11 @@ class Category:
         return title + items + total
 
 def create_spend_chart(categories):
+    '''
+    Función que genera un gráfico con el porcentaje gastado en cada categoría del presupuesto
+    de la clase 'Category'.
+
+    '''
     chart = "Percentage spent by category\n"
     spent_percentages = [(c.get_balance() / sum(cat.get_balance() for cat in categories)) * 100 for c in categories]
     for i in range(100, -1, -10):
