@@ -2,7 +2,7 @@
 
 # Experimentos para el proyecto 'Probability Calculator'
 
-from p20_ProbabilityCalculator_FCC import Hat, experiment
+from proyectos.p21_ProbabilityCalculator_FCC import Hat, experiment
 
 # Experimento para calcular la probabilidad de sacar al menos 1 bola roja y 2 bolas verdes:
 hat = Hat("red", "green", "green", "blue", "blue", "blue")
