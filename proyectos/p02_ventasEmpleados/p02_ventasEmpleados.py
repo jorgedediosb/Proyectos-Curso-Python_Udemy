@@ -1,4 +1,4 @@
-# Programa que calcula el 13% de las ventas de los empleados
+# Programa que calcula el 13% de las ventas de los empleados.
 
 nombre = input("Nombre de empleado: ")
 #al guardarse como string debemos transformar a int
