@@ -5,7 +5,7 @@ El programa analiza el texto indicado dando como resultado:
 2. Cantidad de palabras del texto.
 3. Primera y última letra.
 4. Texto invertido.
-5. Busca la palabra 'Python'
+5. Busca la palabra 'Python'.
 """
 
 texto = input("Ingresa el texto que quieras analizar: ")
