@@ -1,0 +1,1 @@
+Ejercicios del curso 'Scientific Computing with Python' de FreeCodeCamp
