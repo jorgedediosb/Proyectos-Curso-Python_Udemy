@@ -1,6 +1,6 @@
 # Programa 'Cifrado de texto'
 
-# Partimos de un programa que imprime un texto e indica en qué posición del alfabeto está cada letra
+# 1º Partimos de un programa que imprime un texto e indica en qué posición del alfabeto está cada letra
 text = 'Hello World'
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
@@ -8,9 +8,11 @@ for character in text.lower():
     index = alphabet.find(character)
     print(character, index)
 
+print('\n')
 
-# Para llegar al código del cifrado de texto (Cesar):
-text = 'Hello World'
+
+# 2º Definimos la función de cifrado de texto (Cesar):
+text = 'Hella Zorld'
 shift = 3
 
 def caesar(message, offset):
@@ -22,14 +24,17 @@ def caesar(message, offset):
             encrypted_text += char
         else:
             index = alphabet.find(char)
+            # usamos % para que las 'z' no den -1 (último carácter)
+            # Y darle una tamaño varible a 'alphabet' para añadir más letras
             new_index = (index + offset) % len(alphabet)
             encrypted_text += alphabet[new_index]
     print('plain text:', message)
     print('encrypted text:', encrypted_text)
 
 caesar(text, shift)
+print('\n')
 
-# Y un cifrado más completo (Vigenere):
+# 3º un cifrado más completo (Cigrado 'Vigenere'):
 text = 'Hello Wold'
 custom_key = 'python'
 
@@ -59,4 +64,41 @@ def vigenere(message, key):
 encryption = vigenere(text, custom_key)
 print(encryption)
 
-# Y el programa final:
+
+# 4º Programa finalde cifrado 'Vigenere':
+text = 'mrttaqrhknsw ih puggrur'
+custom_key = 'happycoding'
+
+def vigenere(message, key, direction=1):
+    key_index = 0
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    final_message = ''
+
+    for char in message.lower():
+
+        # Append any non-letter character to the message
+        if not char.isalpha():
+            final_message += char
+        else:        
+            # Find the right key character to encode/decode
+            key_char = key[key_index % len(key)]
+            key_index += 1
+
+            # Define the offset and the encrypted/decrypted letter
+            offset = alphabet.index(key_char)
+            index = alphabet.find(char)
+            new_index = (index + offset*direction) % len(alphabet)
+            final_message += alphabet[new_index]
+    
+    return final_message
+
+def encrypt(message, key):
+    return vigenere(message, key)
+    
+def decrypt(message, key):
+    return vigenere(message, key, -1)
+
+print(f'\nEncrypted text: {text}')
+print(f'Key: {custom_key}')
+decryption = decrypt(text, custom_key)
+print(f'\nDecrypted text: {decryption}\n')
