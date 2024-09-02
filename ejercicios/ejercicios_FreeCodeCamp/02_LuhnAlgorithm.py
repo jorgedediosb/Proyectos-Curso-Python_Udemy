@@ -35,6 +35,7 @@ def main():
     # Número de tarjeta limpio, sin guiones ni espacios, listo para ser procesado.
     translated_card_number = card_number.translate(card_translation)
 
+    # Si el nº es válido se imprime 'VALID', sino 'INVALID'
     if verify_card_number(translated_card_number):
         print('VALID!')
     else:
