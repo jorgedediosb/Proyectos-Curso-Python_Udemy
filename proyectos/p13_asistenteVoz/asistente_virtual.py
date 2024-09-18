@@ -82,7 +82,7 @@ def hablar(mensaje):
     engine.runAndWait()
 
 
-# informar el dia de la semana
+# informar del día de la semana
 def pedir_dia():
 
     # crear variable con datos de hoy

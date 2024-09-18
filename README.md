@@ -1,1 +1,1 @@
-Proyectos realizados en Python, tanto personales como en distintos cursos.
+Proyectos realizados en Python, tanto personales como en los distintos cursos realizados.
